@@ -316,7 +316,13 @@
         .project-focus { font-size: 1.25rem; color: var(--text-sub); margin-bottom: 24px; border-left: 4px solid var(--accent); padding-left: 16px; }
         .project-tags { display: flex; flex-wrap: wrap; gap: 8px; }
         
+        /* Layout Adjustments per Section */
         .project-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        /* Cheonan Section: Stacked Layout */
+        #project-2 .project-content { display: block; }
+        #project-2 .text-content { max-width: 800px; margin-bottom: 40px; }
+        #project-2 .visual-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
         .text-block { margin-bottom: 48px; position: relative; }
         .phase-badge { display: inline-block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--accent); background: var(--primary); padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; }
         .text-block h3 { font-size: 1.2rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 12px; }
@@ -365,7 +371,7 @@
         .slot-content {
             position: relative;
             background: #f3f4f6;
-            height: 240px; /* Fixed height for consistency */
+            aspect-ratio: 16/9; /* Better preview size */
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -376,22 +382,43 @@
         .slot-thumbnail {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Fill the box */
+            object-fit: cover;
             object-position: top center;
-            pointer-events: none; /* Let click pass to slot-box */
-            transition: transform 0.3s;
+            /* Allow interactions for scrolling, but don't bubble clicks if not wanted. 
+               However, usually we want click-to-modal. 
+               We will use a separate 'expand' area or rely on the user clicking the header for full expansion if interaction is needed. */
+            pointer-events: auto; /* Allow scrolling inside */
         }
-        .slot-box:hover .slot-thumbnail {
-            transform: scale(1.02);
+        
+        .media-placeholder {
+            width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            color: var(--primary-dark); padding: 40px; text-align: center; background: rgba(255,255,255,0.8); backdrop-filter: blur(2px);
         }
+        .media-icon { font-size: 2.5rem; margin-bottom: 8px; opacity: 0.8; }
 
-        /* Overlay for interactive content thumbnails */
-        .slot-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: transparent;
-            z-index: 10;
+        /* Tableau Link Card */
+        .tableau-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: all 0.2s;
+            height: 100%;
+            text-decoration: none;
         }
+        .tableau-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        .tableau-icon { font-size: 2rem; margin-bottom: 12px; }
+        .tableau-text { font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+        .tableau-sub { font-size: 0.85rem; color: var(--text-sub); }
 
         .segment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
         .seg-card { background: white; padding: 12px; border: 1px solid var(--border); border-radius: 8px; }
@@ -457,7 +484,8 @@
             .pipeline-step { flex-direction: row; gap: 16px; text-align: left; width: 100%; }
             .pipeline-step:not(:last-child)::after { content: ''; position: absolute; left: 24px; top: 48px; height: 20px; width: 2px; background: #E5E7EB; right: auto; font-size: 0; }
             .step-icon { margin-bottom: 0; }
-            .visual-stack { order: 2; margin-top: 20px; }
+            .visual-stack { order: 2; margin-top: 20px; display: flex; } /* Revert to flex stack on mobile */
+            #project-2 .visual-stack { grid-template-columns: 1fr; }
             .text-content { order: 1; }
         }
     </style>
@@ -550,8 +578,7 @@
         </div>
     </section>
 
-    <!-- Keywords & Timeline Sections Omitted for brevity, assume same structure -->
-    <!-- ... (Keywords & Timeline code remains same as previous version) ... -->
+    <!-- Keywords & Timeline Sections -->
     <section id="keywords">
         <div class="container">
             <h2 class="section-title">Core Values</h2>
@@ -664,32 +691,30 @@
 
                 <!-- Right: Visual Slots (Thumbnails) -->
                 <div class="visual-stack">
-                    <!-- PDF Slot: Shows PDF Iframe as Thumbnail -->
-                    <div class="slot-box" onclick="openModal('발표 자료', 'PDF 전체 보기', null, 'asset/thinkgood_presentation.pdf')">
-                        <div class="slot-header">발표 자료 (PDF)</div>
+                    <!-- PDF Slot: Scrollable Thumbnail -->
+                    <div class="slot-box">
+                        <div class="slot-header" onclick="openModal('발표 자료', 'PDF 전체 보기', null, 'asset/thinkgood_presentation.pdf')">
+                            <span>발표 자료 (PDF)</span> <span>확대하기 ↗</span>
+                        </div>
                         <div class="slot-content">
-                            <!-- [수정] PDF 미리보기 (Iframe) + 클릭 방지 오버레이 -->
-                            <iframe src="asset/thinkgood_presentation.pdf#view=FitH&toolbar=0&navpanes=0&scrollbar=0" class="slot-thumbnail"></iframe>
-                            <div class="slot-overlay"></div> 
+                            <!-- Direct Scrollable PDF Preview -->
+                            <iframe src="asset/thinkgood_presentation.pdf#view=FitH&toolbar=0&navpanes=0&scrollbar=1" class="slot-thumbnail"></iframe>
                         </div>
                     </div>
 
-                    <!-- Demo Slot: Shows HuggingFace Iframe as Thumbnail -->
+                    <!-- Demo Slot: Image Thumbnail -->
                     <div class="slot-box" onclick="openModal('서비스 데모', 'Hugging Face Space에서 직접 실행해보세요.', null, 'https://huggingface.co/spaces/HanJaeHui/ThinkGood_Recommendation_System')">
                         <div class="slot-header">서비스 데모 (Hugging Face)</div>
                         <div class="slot-content">
-                            <!-- [수정] 웹사이트 미리보기 (Iframe) + 오버레이 -->
-                            <iframe src="https://huggingface.co/spaces/HanJaeHui/ThinkGood_Recommendation_System" class="slot-thumbnail"></iframe>
-                            <div class="slot-overlay"></div>
+                            <img src="asset/thinkgood%20demo.PNG" class="slot-thumbnail" alt="ThinkGood Demo">
                         </div>
                     </div>
 
                     <!-- Image Slot -->
-                    <div class="slot-box" onclick="openModal('관리자 XAI 화면', 'XAI 대시보드', 'thinkgood_admin_xai.png')">
+                    <div class="slot-box" onclick="openModal('관리자 XAI 화면', 'XAI 대시보드', 'asset/thinkgood_admin_xai.png')">
                         <div class="slot-header">관리자 화면 (Image)</div>
                         <div class="slot-content">
-                            <!-- [수정] 실제 이미지 사용 -->
-                            <img src="thinkgood_admin_xai.png" class="slot-thumbnail" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'media-placeholder\'>Image Not Found</div>'">
+                            <img src="asset/thinkgood_admin_xai.png" class="slot-thumbnail" alt="Admin Dashboard">
                         </div>
                     </div>
                 </div>
@@ -711,9 +736,7 @@
                 </div>
             </div>
 
-            <!-- Pipeline Omitted for brevity -->
             <div class="process-pipeline">
-                <!-- ... Same pipeline steps ... -->
                 <div class="pipeline-step"><span class="step-icon">🏛️</span><span class="step-text">Policy-oriented<br>Problem</span></div>
                 <div class="pipeline-step"><span class="step-icon">🗺️</span><span class="step-text">Admin Data<br>Alignment</span></div>
                 <div class="pipeline-step"><span class="step-icon">🧱</span><span class="step-text">Feature<br>Construction</span></div>
@@ -722,8 +745,8 @@
                 <div class="pipeline-step"><span class="step-icon">📢</span><span class="step-text">Policy-ready<br>Visualization</span></div>
             </div>
 
+            <!-- Changed Layout: Text Top, Visual Grid Bottom -->
             <div class="project-content">
-                <!-- Left: Text -->
                 <div class="text-content">
                     <div class="text-block">
                         <h3>Background & Data Engineering</h3>
@@ -743,38 +766,37 @@
                     </div>
                 </div>
 
-                <!-- Right: Visual Slots -->
+                <!-- Visual Stack: Grid Layout -->
                 <div class="visual-stack">
                     <!-- Image Slot 1 -->
                     <div class="slot-box" onclick="openModal('공간 분석 지도', 'Moran\'s I Hotspot Map', 'asset/행정동별 위험도 시각화.jpg')">
                         <div class="slot-header">공간 분석 (Image)</div>
                         <div class="slot-content">
-                            <img src="asset/행정동별 위험도 시각화.jpg" class="slot-thumbnail" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'media-placeholder\'>Image Not Found</div>'">
+                            <img src="asset/행정동별 위험도 시각화.jpg" class="slot-thumbnail" alt="Spatial Analysis">
                         </div>
                     </div>
                     <!-- Image Slot 2 -->
                     <div class="slot-box" onclick="openModal('탐색 UI 화면', 'Factor Analysis Dashboard UI', 'asset/인자별 위험 요인 탐색 UI.jpg')">
                         <div class="slot-header">탐색 UI (Image)</div>
                         <div class="slot-content">
-                            <img src="asset/인자별 위험 요인 탐색 UI.jpg" class="slot-thumbnail" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'media-placeholder\'>Image Not Found</div>'">
-                        </div>
-                    </div>
-                    <!-- Tableau Slot -->
-                    <div class="slot-box" onclick="openModal('Tableau 대시보드', 'Interactive Dashboard', null, 'https://public.tableau.com/views/_Tableau2_17560266784060/sheet0?:showVizHome=no&:embed=true')">
-                        <div class="slot-header">Tableau 대시보드 (Interact)</div>
-                        <div class="slot-content">
-                            <iframe src="https://public.tableau.com/views/_Tableau2_17560266784060/sheet0?:showVizHome=no&:embed=true" class="slot-thumbnail"></iframe>
-                            <div class="slot-overlay"></div>
+                            <img src="asset/인자별 위험 요인 탐색 UI.jpg" class="slot-thumbnail" alt="Exploration UI">
                         </div>
                     </div>
                     <!-- PDF Slot -->
-                    <div class="slot-box" onclick="openModal('발표 자료', 'PDF 전체 보기', null, 'asset/cheonan_presentation.pdf')">
-                        <div class="slot-header">발표 자료 (PDF)</div>
+                    <div class="slot-box">
+                        <div class="slot-header" onclick="openModal('발표 자료', 'PDF 전체 보기', null, 'asset/cheonan_presentation.pdf')">
+                            <span>발표 자료 (PDF)</span> <span>확대하기 ↗</span>
+                        </div>
                         <div class="slot-content">
-                            <iframe src="asset/cheonan_presentation.pdf#view=FitH&toolbar=0&navpanes=0&scrollbar=0" class="slot-thumbnail"></iframe>
-                            <div class="slot-overlay"></div>
+                            <iframe src="asset/cheonan_presentation.pdf#view=FitH&toolbar=0&navpanes=0&scrollbar=1" class="slot-thumbnail"></iframe>
                         </div>
                     </div>
+                    <!-- Tableau Link Card (No Preview) -->
+                    <a href="https://public.tableau.com/views/_Tableau2_17560266784060/sheet0?:showVizHome=no&:embed=true" target="_blank" class="tableau-card">
+                        <div class="tableau-icon">📊</div>
+                        <div class="tableau-text">Tableau 대시보드</div>
+                        <div class="tableau-sub">새 창에서 데이터 탐색하기 ↗</div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -818,27 +840,24 @@
         </div>
     </div>
 
-    <!-- Modal Script (Bug Fixed) -->
+    <!-- Modal Script -->
     <script>
         function openModal(title, desc, imagePath = null, url = null) {
             const modal = document.getElementById('visualModal');
             const mTitle = document.getElementById('modalTitle');
-            // Remove previous content cleanly
             const mBody = document.querySelector('.modal-body-container');
+            
+            // Clean reset
             mBody.innerHTML = ''; 
-
             mTitle.innerText = title;
 
-            // Generate Content
             if (url) {
-                // Iframe content
                 const iframe = document.createElement('iframe');
                 iframe.src = url;
                 iframe.style.width = '100%';
                 iframe.style.height = '100%';
                 iframe.style.border = 'none';
                 
-                // Fallback / New Window button
                 const btnDiv = document.createElement('div');
                 btnDiv.style.position = 'absolute';
                 btnDiv.style.bottom = '20px';
@@ -855,12 +874,10 @@
                 newWindowLink.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
                 
                 btnDiv.appendChild(newWindowLink);
-                
                 mBody.appendChild(iframe);
                 mBody.appendChild(btnDiv);
 
             } else if (imagePath) {
-                // Image content
                 const img = document.createElement('img');
                 img.src = imagePath;
                 img.style.maxWidth = '100%';
@@ -878,32 +895,25 @@
                 }
             }
 
-            modal.style.display = 'flex'; // Explicit display set
-            // Small timeout to allow display:flex to apply before adding active class for opacity transition
-            setTimeout(() => {
-                modal.classList.add('active');
-            }, 10);
+            modal.style.display = 'flex'; 
+            setTimeout(() => { modal.classList.add('active'); }, 10);
             document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
             const modal = document.getElementById('visualModal');
             modal.classList.remove('active');
-            
-            // Wait for animation to finish before hiding
             setTimeout(() => {
                 modal.style.display = 'none';
-                document.querySelector('.modal-body-container').innerHTML = ''; // Clear memory
+                document.querySelector('.modal-body-container').innerHTML = ''; 
                 document.body.style.overflow = '';
             }, 200);
         }
 
-        // Close on outside click
         document.getElementById('visualModal').addEventListener('click', function(e) {
             if (e.target === this) closeModal();
         });
 
-        // Close on Escape
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeModal();
         });

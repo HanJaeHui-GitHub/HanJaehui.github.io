@@ -321,7 +321,7 @@
         
         .text-block { margin-bottom: 48px; position: relative; }
         
-        /* [NEW] Step vs Phase Badge Visual Distinction */
+        /* Step vs Phase Badge Visual Distinction */
         .phase-badge { 
             display: inline-block; 
             font-size: 0.75rem; 
@@ -332,13 +332,11 @@
             margin-bottom: 8px; 
         }
         .phase-badge.step {
-            /* Lighter style for preparation steps */
             background-color: #E2E8F0; 
             color: #4B5563; 
             border: 1px solid #CBD5E1;
         }
         .phase-badge.phase {
-            /* Stronger style for execution phases */
             background-color: var(--primary); 
             color: var(--accent); 
             border: 1px solid var(--primary);
@@ -349,7 +347,7 @@
         .text-block li { position: relative; padding-left: 14px; margin-bottom: 6px; }
         .text-block li::before { content: '•'; position: absolute; left: 0; color: var(--text-light); }
 
-        /* [NEW] Updated Visual Slots Style */
+        /* [UPDATED] Visual Slots Style */
         .visual-stack { display: flex; flex-direction: column; gap: 32px; }
         .slot-box {
             background: white;
@@ -397,13 +395,14 @@
             justify-content: center;
         }
         
-        /* Actual Media in Thumbnail */
+        /* [UPDATED] Actual Media in Thumbnail - Contain to prevent cutting */
         .slot-thumbnail {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: top center;
+            object-fit: contain; /* Changed from cover to contain to prevent cropping */
+            object-position: center;
             pointer-events: auto; /* Allow scrolling inside */
+            background-color: #f3f4f6; /* Background for contained images */
         }
         
         .media-placeholder {
@@ -690,7 +689,7 @@
                     <!-- PDF Slot: Scrollable Thumbnail -->
                     <div class="slot-box">
                         <div class="slot-header" onclick="openModal('발표 자료', 'PDF 전체 보기', null, 'asset/thinkgood_presentation.pdf')">
-                            <span>발표 자료 (PDF)</span> 
+                            <span>발표 자료 (PDF)</span> <span>확대하기 ↗</span>
                         </div>
                         <div class="slot-content">
                             <!-- Direct Scrollable PDF Preview -->
@@ -760,7 +759,7 @@
                         <p>Moran’s I로 공간적 핫스팟(HH)을 도출하고, KMeans로 위험군을 분류했습니다. 최종적으로 Tableau 대시보드를 통해 비전문가도 "어디에 예산을 투입해야 하는지" 한눈에 볼 수 있도록 시각화하여 설득력을 높였습니다.</p>
                     </div>
                     
-                    <!-- [수정] Tableau Button Here -->
+                    <!-- Tableau Button Here -->
                     <div style="margin-top: 32px;">
                         <a href="https://public.tableau.com/app/profile/.45103572/viz/_Tableau2_17560266784060/sheet0" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center; height: 56px; text-decoration: none;">
                             📊 Tableau 대시보드 바로가기 ↗
@@ -787,7 +786,7 @@
                     <!-- PDF Slot -->
                     <div class="slot-box">
                         <div class="slot-header" onclick="openModal('발표 자료', 'PDF 전체 보기', null, 'asset/cheonan_presentation.pdf')">
-                            <span>발표 자료 (PDF)</span> 
+                            <span>발표 자료 (PDF)</span> <span>확대하기 ↗</span>
                         </div>
                         <div class="slot-content">
                             <iframe src="asset/cheonan_presentation.pdf#view=FitH&toolbar=0&navpanes=0&scrollbar=1" class="slot-thumbnail"></iframe>
@@ -876,7 +875,12 @@
 
             } else if (url) {
                 const iframe = document.createElement('iframe');
-                iframe.src = url;
+                // PDF Toolbar Hiding
+                if (url.toLowerCase().endsWith('.pdf') && !url.includes('#')) {
+                    iframe.src = url + "#toolbar=0&navpanes=0&scrollbar=0"; 
+                } else {
+                    iframe.src = url;
+                }
                 iframe.style.width = '100%';
                 iframe.style.height = '100%';
                 iframe.style.border = 'none';

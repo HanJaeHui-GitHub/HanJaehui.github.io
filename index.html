@@ -239,7 +239,7 @@
 
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* ✅ 추가: 너 HTML에서 쓰는 내부 래퍼/스택이 CSS에 없어서 레이아웃이 불안정할 수 있음 */
+    /* HTML에서 쓰는 내부 래퍼/스택이 CSS에 없어서 레이아웃이 불안정할 수 있음 */
     .details-inner { width: 100%; }
     .project-content-stack { display: flex; flex-direction: column; gap: 28px; }
 
@@ -267,7 +267,7 @@
       display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f0f0f0; padding-bottom: 12px;
     }
 
-    /* ✅ 추가: context-block / context-list 네 HTML에서 사용 중 */
+    /* context-block / context-list */
     .context-block { margin-top: 10px; }
     .context-list { display: flex; flex-direction: column; gap: 10px; padding-left: 0; }
     .context-list li {
@@ -281,7 +281,7 @@
       font-weight: 900;
     }
 
-    /* ✅ 핵심 수정 1: phase-grid-2 기본 grid 정의 (이게 없으면 2칼럼 안 됨) */
+    /* phase-grid-2 기본 grid 정의 */
     .phase-grid-2{
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -297,7 +297,7 @@
       padding: 24px;
     }
 
-    /* ✅ 핵심 수정 2: phase-badge 정의 (HTML에서 쓰는데 CSS가 없음) */
+    /* phase-badge */
     .phase-badge{
       display: inline-flex;
       align-items: center;
@@ -338,7 +338,7 @@
 
     .seg-desc-mini { font-size: 0.85rem; color: var(--text-sub); margin-bottom: 8px; line-height: 1.4; }
 
-    /* ✅ 핵심 수정 3: 너는 HTML에서 formula-code를 쓰고 있었는데 CSS는 seg-formula만 있었음 */
+    /* formula-code */
     .formula-code{
       display: block;
       margin-top: auto;
@@ -361,7 +361,7 @@
       gap: 6px;
       background: #fff; padding: 14px; border-radius: 8px; border: 1px solid var(--border);
     }
-    /* ✅ 핵심 수정 4: asset-head / asset-body 네 HTML에서 사용 중인데 CSS가 없었음 */
+    /* asset-head / asset-body */
     .asset-head{
       font-weight: 900;
       color: var(--primary-dark);
@@ -422,7 +422,7 @@
     .pie-legend div { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
     .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
 
-    /* ✅ 핵심 수정 5: HTML은 pie-chart-visual인데 CSS는 pie-chart였음 → 별칭 추가 */
+    /* Pie-chart-visual */
     .pie-chart-visual { width: 120px; height: 120px; border-radius: 50%; background: conic-gradient(var(--primary) 0% 92%, #e5e7eb 92% 100%); margin: 0 auto; }
 
     /* Policy Grid */
@@ -664,6 +664,7 @@
                   <ul class="context-list">
                     <li>추천을 위한 행동 로그(Click/View) 부재, 오직 '접수' 데이터만 존재</li>
                     <li>추천의 목적을 “정교한 개인화”보다 <strong>"탐색 비용을 줄여 이탈을 막는다"</strong>는 비즈니스 목표로 문제 재정의</li>
+                    <li>따라서 ‘개인화 모델’이 아닌, 데이터 밀도에 따라 목표가 다른 세그먼트 전략이 최적</li>
                   </ul>
                 </div>
               </div>
@@ -685,6 +686,7 @@
               <div class="phase-badge">PHASE 1</div>
               <div class="phase-title">Segment Strategy</div>
               <p class="phase-subtitle">마케터가 이해하고 운영할 수 있는 '설명 가능한 로직'으로 즉시 도입 가능한 모델을 구현했습니다.</p>
+              <p class="phase-subtitle">세그먼트별 목표를 ‘탐색 유도–재진입–취향 학습–정밀 개인화’로 분리해, 동일한 데이터 현실에서도 추천이 작동하도록 설계했습니다.</p>
 
               <div class="segment-grid-2x2">
                 <!-- GUEST -->
@@ -755,7 +757,7 @@
               </div>
 
               <div class="impact-highlight">
-                💡 Impact: Result 중심 → Process 중심으로 확장 가능한 데이터 인프라 전환
+                💡 Impact: Result 중심 → Process 중심으로 추후 ML/DL 확장 가능한 데이터 인프라 전환
               </div>
             </div>
 

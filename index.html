@@ -553,11 +553,11 @@
                 </div>
                 <div class="result-card">
                     <h4 class="result-head">Solution</h4>
-                    <p class="result-text"><span class="highlight-num">Segment</span> Strategy<br><span style="font-size:0.85rem; font-weight:400; color:var(--text-sub);">4세그먼트 하이브리드 추천 설계</span></p>
+                    <p class="result-text"><span class="highlight-num">Segment</span> Strategy<br><span style="font-size:0.85rem; font-weight:400; color:var(--text-sub);">4 세그먼트 하이브리드 추천 설계</span></p>
                 </div>
                 <div class="result-card">
                     <h4 class="result-head">Impact</h4>
-                    <p class="result-text"><span class="highlight-num">XAI</span> Dashboard<br><span style="font-size:0.85rem; font-weight:400; color:var(--text-sub);">블랙박스 불신 → 신뢰 확보</span></p>
+                    <p class="result-text"><span class="highlight-num">XAI</span> Dashboard<br><span style="font-size:0.85rem; font-weight:400; color:var(--text-sub);">근거 시각화 → 검증·조정 가능한 운영형 추천</span></p>
                 </div>
             </div>
 
@@ -579,7 +579,7 @@
                                 <div class="context-block" style="margin:0;">
                                     <ul class="context-list">
                                         <li>추천을 위한 행동 로그(Click/View) 부재, 오직 '접수' 데이터만 존재</li>
-                                        <li>"데이터가 없어서 AI가 불가능하다"는 한계를 넘어, <strong>"탐색 비용을 줄여 이탈을 막는다"</strong>는 비즈니스 목표로 문제 재정의</li>
+                                        <li>추천의 목적을 “정교한 개인화”보다 <strong>"탐색 비용을 줄여 이탈을 막는다"</strong>는 비즈니스 목표로 문제 재정의</li>
                                     </ul>
                                 </div>
                             </div>
@@ -609,8 +609,8 @@
                                         <span class="seg-purpose">탐색 유도</span>
                                     </div>
                                     <div class="seg-desc-mini">인기 + 최신성 반영</div>
-                                    <code class="formula-code">Score = 0.7 · Norm(log(1 + Pop)) + 0.3 · Norm(RecencyDecay)</code>
-                                    <div class="seg-vars">Pop=최근N일 인기, Recency=exp(-d/τ)</div>
+                                    <code class="formula-code">Score = 0.7 · Norm(log(1 + Pop)) + 0.3 · Norm(Recency Decay)</code>
+                                    <div class="seg-vars">Pop=최근 N일 인기, Recency=exp(-d/τ)</div>
                                 </div>
                                 <!-- DORMANT -->
                                 <div class="seg-card-mini">
@@ -619,7 +619,7 @@
                                         <span class="seg-purpose">장벽 완화</span>
                                     </div>
                                     <div class="seg-desc-mini">EASY 공모전 가중치</div>
-                                    <code class="formula-code">Score = Norm(Pop) · EasyWeight</code>
+                                    <code class="formula-code">Score = Norm(Pop) · Easy Weight</code>
                                     <div class="seg-vars">EASY=[네이밍, 사진, 퀴즈]</div>
                                 </div>
                                 <!-- LIGHT -->

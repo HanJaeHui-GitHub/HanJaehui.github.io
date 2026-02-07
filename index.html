@@ -5,14 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Han Jaehui | Data Analyst Portfolio</title>
 
-  <!-- Pretendard -->
   <link rel="stylesheet" as="style" crossorigin
-        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
   <style>
-    /* =========================
-      RESET & VARIABLES
-    ========================= */
     :root {
       --primary: #00462A;
       --primary-dark: #00331F;
@@ -30,22 +26,23 @@
       --radius: 12px;
       --container-width: 1100px;
 
-      /* Shadows */
       --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
-      --shadow-md: 0 12px 30px rgba(0,0,0,0.10);
+      --shadow-md: 0 10px 24px rgba(0,0,0,0.10);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
       color: var(--text-main);
-      line-height: 1.6;
+      line-height: 1.65;
       background-color: var(--bg-white);
       word-break: keep-all;
+      font-weight: 400;
     }
     a { text-decoration: none; color: inherit; transition: color 0.2s; }
     ul { list-style: none; padding: 0; margin: 0; }
     img { max-width: 100%; display: block; }
+    strong { font-weight: 700; }
 
     .container {
       max-width: var(--container-width);
@@ -53,26 +50,23 @@
       padding: 0 24px;
     }
 
-    /* Badge */
     .badge {
       display: inline-block;
       padding: 4px 10px;
       border-radius: 6px;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 600;
       background-color: rgba(0, 70, 42, 0.08);
       color: var(--primary);
-      border: 1px solid rgba(0, 70, 42, 0.1);
-      margin-right: 4px;
-      margin-bottom: 4px;
+      border: 1px solid rgba(0, 70, 42, 0.12);
+      margin-right: 6px;
+      margin-bottom: 6px;
     }
-    .text-accent { color: var(--accent); font-weight: 700; }
 
-    /* =========================
-      NAV
-    ========================= */
     nav {
-      position: fixed; top: 0; width: 100%;
+      position: fixed;
+      top: 0;
+      width: 100%;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
       z-index: 1000;
@@ -92,282 +86,212 @@
     }
     .logo { font-weight: 800; font-size: 1.25rem; color: var(--primary); }
     .nav-links { display: flex; gap: 24px; }
-    .nav-links a { font-size: 0.9rem; font-weight: 600; color: var(--text-sub); }
+    .nav-links a { font-size: 0.92rem; font-weight: 600; color: var(--text-sub); }
     .nav-links a:hover { color: var(--primary); }
 
-    /* =========================
-      HERO
-    ========================= */
     #hero { padding: 140px 0 80px; background-color: var(--bg-white); }
     .hero-grid {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
-      gap: 80px;
+      gap: 70px;
       align-items: center;
     }
     .hero-text h1 {
-      font-size: 2.8rem;
-      line-height: 1.3;
+      font-size: 2.85rem;
+      line-height: 1.22;
       font-weight: 800;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
       color: var(--text-main);
       letter-spacing: -0.02em;
     }
     .hero-text p {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       color: var(--text-sub);
-      margin-bottom: 40px;
+      margin-bottom: 34px;
       max-width: 640px;
       font-weight: 500;
     }
-    .proof-strip { display: flex; gap: 10px; margin-bottom: 28px; flex-wrap: wrap; }
+    .proof-strip { display: flex; gap: 10px; margin-bottom: 22px; flex-wrap: wrap; }
     .proof-item {
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       font-weight: 700;
       color: var(--primary);
       background: #F0FDF4;
       padding: 6px 14px;
-      border-radius: 8px;
-      border: 1px solid rgba(0, 70, 42, 0.2);
+      border-radius: 10px;
+      border: 1px solid rgba(0, 70, 42, 0.20);
     }
     .cta-group { display: flex; gap: 12px; }
+
     .btn {
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      padding: 12px 28px;
-      border-radius: 8px;
-      font-weight: 600;
+      padding: 12px 26px;
+      border-radius: 10px;
+      font-weight: 650;
       font-size: 0.95rem;
       transition: all 0.2s ease;
       cursor: pointer;
       border: 1px solid transparent;
       text-decoration: none;
+      white-space: nowrap;
     }
     .btn-primary { background-color: var(--primary); color: white; }
     .btn-primary:hover { background-color: var(--primary-dark); transform: translateY(-2px); }
-    .btn-secondary { background-color: white; color: var(--primary); border: 1px solid var(--primary); }
+    .btn-secondary { background-color: white; color: var(--primary); border: 1px solid rgba(0, 70, 42, 0.35); }
     .btn-secondary:hover { background-color: rgba(0, 70, 42, 0.05); transform: translateY(-2px); }
 
-    /* ===== HERO VISUAL (CSS DRAWING) ===== */
+    /* HERO VISUAL: CSS ILLUSTRATION (NO IMAGES) */
     .hero-visual-card {
       width: 100%;
       aspect-ratio: 4/5;
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      border-radius: 24px;
+      border-radius: 26px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 70, 42, 0.2);
-      padding: 32px;
+      box-shadow: 0 14px 34px rgba(0, 70, 42, 0.22);
+      padding: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* subtle noise/shine */
-    .hero-visual-card::before {
-      content: "";
+    .illus-card {
       position: absolute;
-      inset: -40%;
-      background:
-        radial-gradient(circle at 30% 25%, rgba(255,255,255,0.18), transparent 55%),
-        radial-gradient(circle at 80% 70%, rgba(195,232,141,0.14), transparent 60%);
-      transform: rotate(12deg);
-      pointer-events: none;
-    }
-
-    /* “cards” drawn by CSS (no images) */
-    .collage-card {
-      position: absolute;
-      border-radius: 14px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.14);
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.92);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(255,255,255,0.20);
+      box-shadow: 0 18px 44px rgba(0,0,0,0.18);
       overflow: hidden;
-      transition: transform 0.3s ease;
-      backdrop-filter: blur(6px);
+      transform-origin: center;
+      transition: transform 0.25s ease;
     }
 
-    .card-1 { width: 280px; height: 180px; top: 22px; right: 18px; z-index: 1; transform: rotate(5deg); }
-    .card-2 { width: 300px; height: 200px; top: 88px; left: 36px; z-index: 2; transform: rotate(-3deg); }
-    .card-3 { width: 320px; height: 220px; bottom: 22px; right: 74px; z-index: 3; transform: rotate(2deg); }
+    .illus-1 { width: 78%; height: 34%; top: 10%; left: 10%; transform: rotate(-4deg); }
+    .illus-2 { width: 82%; height: 38%; top: 30%; left: 8%; transform: rotate(3deg); }
+    .illus-3 { width: 76%; height: 40%; top: 55%; left: 12%; transform: rotate(-2deg); }
 
-    .hero-visual-card:hover .card-1 { transform: rotate(8deg) translate(10px, -10px); }
-    .hero-visual-card:hover .card-2 { transform: rotate(-5deg) translate(-10px, 10px); }
-    .hero-visual-card:hover .card-3 { transform: rotate(0deg) scale(1.05); z-index: 4; }
+    .hero-visual-card:hover .illus-1 { transform: rotate(-6deg) translate(-6px, -6px); }
+    .hero-visual-card:hover .illus-2 { transform: rotate(5deg) translate(6px, -2px); }
+    .hero-visual-card:hover .illus-3 { transform: rotate(0deg) translate(0, -4px); }
 
-    .card-inner {
-      width: 100%;
-      height: 100%;
-      padding: 14px;
+    .illus-header {
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px;
+      background: rgba(17,24,39,0.03);
+      border-bottom: 1px solid rgba(17,24,39,0.08);
+      font-weight: 650;
+      color: rgba(17,24,39,0.85);
+      font-size: 0.9rem;
+    }
+    .illus-dots { display: flex; gap: 6px; }
+    .illus-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: rgba(17,24,39,0.14);
+    }
+    .illus-body { padding: 14px; height: calc(100% - 42px); }
+
+    .mini-bars { display: flex; gap: 10px; align-items: flex-end; height: 100%; }
+    .bar {
+      width: 18%;
+      border-radius: 10px;
+      background: rgba(0,70,42,0.16);
+      border: 1px solid rgba(0,70,42,0.18);
+    }
+    .bar:nth-child(1){ height: 45%; }
+    .bar:nth-child(2){ height: 72%; background: rgba(0,70,42,0.22); }
+    .bar:nth-child(3){ height: 58%; }
+    .bar:nth-child(4){ height: 86%; background: rgba(195,232,141,0.60); border-color: rgba(0,70,42,0.12); }
+    .bar:nth-child(5){ height: 66%; }
+
+    .mini-map {
+      width: 100%; height: 100%;
+      border-radius: 12px;
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.90));
+        radial-gradient(circle at 30% 40%, rgba(195,232,141,0.55), transparent 45%),
+        radial-gradient(circle at 62% 55%, rgba(239,68,68,0.42), transparent 48%),
+        radial-gradient(circle at 78% 32%, rgba(249,115,22,0.40), transparent 44%),
+        linear-gradient(180deg, rgba(0,70,42,0.07), rgba(0,70,42,0.03));
+      border: 1px solid rgba(0,70,42,0.12);
+      position: relative;
+      overflow: hidden;
     }
-    .card-topline {
+    .mini-map::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        repeating-linear-gradient(90deg, rgba(17,24,39,0.06) 0 1px, transparent 1px 26px),
+        repeating-linear-gradient(0deg, rgba(17,24,39,0.06) 0 1px, transparent 1px 26px);
+      opacity: 0.55;
+      pointer-events:none;
+    }
+
+    .mini-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      height: 100%;
+    }
+    .mini-card {
+      background: rgba(0,70,42,0.05);
+      border: 1px solid rgba(0,70,42,0.12);
+      border-radius: 12px;
+      padding: 10px 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-weight: 800;
-      font-size: 0.85rem;
-      color: #0f172a;
-      margin-bottom: 10px;
+      font-size: 0.88rem;
+      color: rgba(17,24,39,0.82);
     }
     .pill {
-      font-size: 0.7rem;
-      font-weight: 800;
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: rgba(0,70,42,0.08);
+      font-size: 0.78rem;
+      font-weight: 650;
+      background: rgba(0,70,42,0.10);
       color: var(--primary);
-      border: 1px solid rgba(0,70,42,0.14);
-    }
-
-    /* Card 1: “PPT thumb” look */
-    .ppt-mock {
-      height: calc(100% - 32px);
-      border-radius: 12px;
-      border: 1px solid rgba(15,23,42,0.08);
-      background:
-        linear-gradient(0deg, rgba(0,70,42,0.06), rgba(0,70,42,0.02)),
-        radial-gradient(circle at 20% 30%, rgba(195,232,141,0.5), transparent 50%),
-        radial-gradient(circle at 70% 70%, rgba(0,70,42,0.25), transparent 55%),
-        #ffffff;
-      position: relative;
-      overflow: hidden;
-    }
-    .ppt-mock::after {
-      content: "";
-      position: absolute;
-      left: 14px; right: 14px;
-      top: 18px;
-      height: 10px;
-      border-radius: 8px;
-      background: rgba(15,23,42,0.12);
-      box-shadow:
-        0 18px 0 rgba(15,23,42,0.10),
-        0 36px 0 rgba(15,23,42,0.08),
-        0 54px 0 rgba(15,23,42,0.06);
-      opacity: 0.9;
-    }
-
-    /* Card 2: “Map / heat” look */
-    .map-mock {
-      height: calc(100% - 32px);
-      border-radius: 12px;
-      border: 1px solid rgba(15,23,42,0.08);
-      background: #ffffff;
-      position: relative;
-      overflow: hidden;
-    }
-    .map-mock .grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(to right, rgba(15,23,42,0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(15,23,42,0.05) 1px, transparent 1px);
-      background-size: 18px 18px;
-      opacity: 0.55;
-    }
-    .map-mock .blob {
-      position: absolute;
-      width: 140px; height: 110px;
-      border-radius: 40% 60% 55% 45% / 45% 40% 60% 55%;
-      filter: blur(0.2px);
-      opacity: 0.95;
-    }
-    .blob.red { background: #ef4444; right: 18px; top: 40px; }
-    .blob.orange { background: #f97316; right: 70px; top: 90px; transform: rotate(8deg); }
-    .blob.green { background: #22c55e; left: 40px; top: 70px; transform: rotate(-10deg); }
-
-    /* Card 3: “UI demo” look */
-    .ui-mock {
-      height: calc(100% - 32px);
-      border-radius: 12px;
-      border: 1px solid rgba(15,23,42,0.08);
-      background:
-        linear-gradient(180deg, rgba(0,70,42,0.08), rgba(0,70,42,0.02)),
-        #ffffff;
-      position: relative;
-      overflow: hidden;
-    }
-    .ui-mock .search {
-      position: absolute;
-      left: 16px; right: 16px; top: 16px;
-      height: 34px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.92);
-      border: 1px solid rgba(15,23,42,0.10);
-    }
-    .ui-mock .bar {
-      position: absolute;
-      left: 16px; right: 16px; top: 62px;
-      height: 10px;
+      padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(239,68,68,0.85);
-    }
-    .ui-mock .cards {
-      position: absolute;
-      left: 16px; right: 16px; top: 88px; bottom: 16px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-    .ui-mock .cards span {
-      border-radius: 12px;
-      border: 1px solid rgba(15,23,42,0.08);
-      background: rgba(255,255,255,0.92);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,70,42,0.12);
+      white-space: nowrap;
     }
 
-    /* =========================
-      PROOF TEASER
-    ========================= */
     #proof { padding-bottom: 80px; }
     .proof-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .teaser-card {
       background: white;
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 32px;
+      padding: 30px;
       transition: all 0.2s;
       cursor: pointer;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 260px;
+      min-height: 250px;
     }
     .teaser-card:hover {
-      border-color: var(--primary);
+      border-color: rgba(0,70,42,0.35);
       box-shadow: var(--shadow-sm);
       transform: translateY(-4px);
     }
-    .teaser-meta { font-size: 0.8rem; color: var(--text-light); margin-bottom: 8px; font-weight: 600; }
-    .teaser-title { font-size: 1.3rem; font-weight: 700; color: var(--text-main); margin-bottom: 12px; line-height: 1.3; }
-    .teaser-desc { font-size: 0.95rem; color: var(--text-sub); margin-bottom: 24px; line-height: 1.6; }
+    .teaser-meta { font-size: 0.82rem; color: var(--text-light); margin-bottom: 8px; font-weight: 600; }
+    .teaser-title { font-size: 1.28rem; font-weight: 750; color: var(--text-main); margin-bottom: 10px; line-height: 1.25; }
+    .teaser-desc { font-size: 0.96rem; color: var(--text-sub); margin-bottom: 20px; line-height: 1.65; font-weight: 450; }
     .teaser-footer { display: flex; justify-content: flex-end; }
-    .btn-link { font-weight: 700; color: var(--primary); font-size: 0.9rem; }
+    .btn-link { font-weight: 700; color: var(--primary); font-size: 0.92rem; }
 
-    /* =========================
-      ABOUT
-    ========================= */
     #about { padding: 80px 0; background-color: var(--bg-light); }
-    .about-layout {
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 60px;
-    }
-    .profile-side {
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+    .section-title { font-size: 1.6rem; font-weight: 800; color: var(--text-main); }
+    .about-layout { display: grid; grid-template-columns: 240px 1fr; gap: 60px; }
+    .profile-side { text-align: center; display: flex; flex-direction: column; align-items: center; }
     .profile-img-slot {
-      width: 140px; height: 140px;
-      background-color: #E2E8F0;
-      border-radius: 50%;
-      margin: 0 auto 20px;
-      overflow: hidden;
-      border: 4px solid white;
-      box-shadow: var(--shadow-sm);
+      width: 140px; height: 140px; background-color: #E2E8F0; border-radius: 50%;
+      margin: 0 auto 18px; overflow: hidden; border: 4px solid white; box-shadow: var(--shadow-sm);
     }
-    .profile-name { font-size: 1.4rem; font-weight: 700; margin-bottom: 16px; }
+    .profile-name { font-size: 1.35rem; font-weight: 750; margin-bottom: 14px; }
     .profile-links { display: flex; justify-content: center; gap: 8px; }
     .social-btn {
       padding: 6px 14px;
@@ -375,18 +299,46 @@
       background: white;
       border: 1px solid var(--border);
       color: var(--text-sub);
-      font-weight: 500;
-      font-size: 0.85rem;
+      font-weight: 550;
+      font-size: 0.86rem;
       transition: all 0.2s;
       text-decoration: none;
     }
-    .social-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .social-btn:hover { border-color: rgba(0,70,42,0.35); color: var(--primary); }
 
-    /* About Text */
+    /* Quote: wider */
+    .profile-quote {
+      margin-top: 26px;
+      padding: 28px 30px;
+      background-color: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      position: relative;
+      width: min(460px, 100%);
+    }
+    .profile-quote::before {
+      content: '“';
+      display: block;
+      font-family: serif;
+      font-size: 2.3rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: -10px;
+    }
+    .quote-text {
+      font-size: 0.96rem;
+      color: var(--text-main);
+      line-height: 1.7;
+      font-weight: 520;
+      margin: 0;
+    }
+
     .about-text-card {
       background: white;
-      padding: 40px;
-      border-radius: var(--radius);
+      padding: 38px;
+      border-radius: 16px;
       box-shadow: var(--shadow-sm);
       border: 1px solid var(--border);
       display: flex;
@@ -402,87 +354,47 @@
       transition: transform 0.2s;
       display: flex;
       flex-direction: column;
-      box-shadow: var(--shadow-sm);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.02);
     }
-    .keyword-card:hover { transform: translateY(-2px); border-color: var(--primary); }
-    .hash { color: var(--primary); font-weight: 700; font-size: 1.1rem; display: block; margin-bottom: 8px; }
-    .desc { font-size: 0.9rem; color: var(--text-sub); line-height: 1.4; }
+    .keyword-card:hover { transform: translateY(-2px); border-color: rgba(0,70,42,0.25); }
+    .hash { color: var(--primary); font-weight: 750; font-size: 1.05rem; display: block; margin-bottom: 8px; }
+    .desc { font-size: 0.92rem; color: var(--text-sub); line-height: 1.5; font-weight: 450; }
 
-    /* ✅ PROFILE QUOTE: 가로폭 확대 (그리드 밖으로 빼서 넓게) */
-    .profile-quote-wide {
-      margin-top: 28px;
-      display: flex;
-      justify-content: center;
-    }
-    .profile-quote {
-      width: 100%;
-      max-width: 840px; /* 여기로 “가로 폭” 조절 */
-      padding: 32px 40px;
-      background-color: white;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      box-shadow: var(--shadow-sm);
-      text-align: center;
-      position: relative;
-    }
-    .profile-quote::before {
-      content: '“';
-      display: block;
-      font-family: serif;
-      font-size: 2.6rem;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: -10px;
-    }
-    .quote-text {
-      font-size: 1rem;
-      color: var(--text-main);
-      line-height: 1.7;
-      word-break: keep-all;
-      font-weight: 650;
-      margin: 0;
-    }
-
-    /* =========================
-      PROJECT COMMON
-    ========================= */
-    .project-section, .project-detail {
-      padding: 100px 0;
+    .project-detail {
+      padding: 95px 0;
       border-top: 1px solid var(--border);
       background-color: var(--bg-white);
     }
 
     .pj-summary {
-      margin-bottom: 40px;
+      margin-bottom: 36px;
       text-align: center;
-      max-width: 900px;
+      max-width: 920px;
       margin-left: auto;
       margin-right: auto;
     }
     .pj-date {
       display: inline-block;
-      font-size: 0.85rem;
+      font-size: 0.86rem;
       font-weight: 700;
       color: var(--primary);
       background: rgba(0, 70, 42, 0.08);
-      padding: 4px 12px;
-      border-radius: 20px;
+      padding: 5px 12px;
+      border-radius: 999px;
       margin-bottom: 12px;
     }
     .pj-title {
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin-bottom: 12px;
-      line-height: 1.3;
-      word-break: keep-all;
+      font-size: 1.85rem;
+      font-weight: 850;
+      margin-bottom: 10px;
+      line-height: 1.25;
     }
     .pj-desc {
-      font-size: 1.1rem;
+      font-size: 1.08rem;
       color: var(--text-sub);
-      line-height: 1.6;
-      max-width: 800px;
+      line-height: 1.65;
+      max-width: 820px;
       margin: 0 auto;
-      word-break: keep-all;
       font-weight: 500;
     }
     .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; justify-content: center; }
@@ -490,34 +402,34 @@
     .pj-info-grid {
       display: flex;
       justify-content: center;
-      gap: 32px;
-      margin: 20px auto;
+      gap: 26px;
+      margin: 18px auto;
       text-align: left;
       background: #F9FAFB;
-      padding: 16px 24px;
-      border-radius: 100px;
+      padding: 14px 22px;
+      border-radius: 999px;
       border: 1px solid var(--border);
       width: fit-content;
       flex-wrap: wrap;
     }
     .pj-info-item { display: flex; flex-direction: row; align-items: center; gap: 8px; }
     .pj-info-item h5 {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--primary);
       margin: 0;
       text-transform: uppercase;
       font-weight: 800;
       min-width: 44px;
+      letter-spacing: 0.03em;
     }
-    .pj-info-item p { font-size: 0.9rem; color: var(--text-main); margin: 0; }
+    .pj-info-item p { font-size: 0.92rem; color: var(--text-main); margin: 0; font-weight: 450; }
 
-    /* Results Strip */
-    .results-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 40px; }
+    .results-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 34px; }
     .result-card {
       background: #ffffff;
-      border: 1px solid rgba(0, 70, 42, 0.15);
-      border-radius: 12px;
-      padding: 20px 16px;
+      border: 1px solid rgba(0, 70, 42, 0.14);
+      border-radius: 14px;
+      padding: 18px 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -527,157 +439,183 @@
       transition: transform 0.2s;
       height: 100%;
     }
-    .result-card:hover { transform: translateY(-2px); border-color: var(--primary); }
+    .result-card:hover { transform: translateY(-2px); border-color: rgba(0,70,42,0.28); }
     .result-head {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 800;
       color: var(--text-light);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
       margin-bottom: 8px;
     }
-    .result-text { font-size: 0.95rem; font-weight: 700; color: var(--text-main); line-height: 1.4; margin: 0; word-break: keep-all; }
-    .highlight-num { display: block; font-size: 2rem; font-weight: 800; color: var(--primary); line-height: 1.1; margin-bottom: 6px; }
+    .result-text {
+      font-size: 0.95rem;
+      font-weight: 550;
+      color: var(--text-main);
+      line-height: 1.45;
+      margin: 0;
+    }
+    .highlight-num {
+      display: block;
+      font-size: 2.0rem;
+      font-weight: 850;
+      color: var(--primary);
+      line-height: 1.05;
+      margin-bottom: 6px;
+    }
 
-    /* Toggle Button */
-    .btn-toggle-wrapper { text-align: center; margin-top: 30px; margin-bottom: 40px; }
+    .btn-toggle-wrapper { text-align: center; margin-top: 22px; margin-bottom: 26px; }
     .btn-toggle-details {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 30px;
-      border-radius: 30px;
+      padding: 12px 26px;
+      border-radius: 999px;
       background-color: white;
-      border: 1px solid var(--primary);
+      border: 1px solid rgba(0,70,42,0.35);
       color: var(--primary);
-      font-weight: 700;
-      font-size: 1rem;
+      font-weight: 720;
+      font-size: 0.98rem;
       cursor: pointer;
       transition: all 0.2s;
     }
     .btn-toggle-details:hover { background-color: var(--primary); color: white; transform: translateY(-2px); }
 
-    /* Collapsible Details */
+    /* COLLAPSIBLE DETAILS: slightly smaller (less “full”) */
     .project-details-wrapper {
       display: none;
-      margin-top: 40px;
-      padding: 60px 40px;
+      margin-top: 26px;
+      padding: 40px 34px;
       border-top: 1px dashed var(--border);
-      animation: fadeIn 0.4s ease;
+      animation: fadeIn 0.35s ease;
       background-color: #F8F9FA;
-      border-radius: 20px;
+      border-radius: 18px;
     }
     .project-details-wrapper.active { display: block; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* ✅ ThinkGood 상세 레이아웃/스타일 (누락된 것들 추가) */
-    .project-content-stack { display: flex; flex-direction: column; gap: 28px; }
+    .details-inner { max-width: 980px; margin: 0 auto; }
+
+    .project-content-stack { display: flex; flex-direction: column; gap: 18px; }
 
     .full-width-card {
       background: white;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 32px;
+      border-radius: 14px;
+      padding: 26px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.02);
     }
     .detail-h3 {
-      font-size: 1.25rem;
-      font-weight: 900;
+      font-size: 1.15rem;
+      font-weight: 820;
       color: var(--primary-dark);
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       display: flex;
       align-items: center;
       gap: 10px;
       border-bottom: 2px solid #f0f0f0;
-      padding-bottom: 12px;
-      letter-spacing: -0.01em;
+      padding-bottom: 10px;
     }
-    .context-block { margin-top: 10px; }
+
+    .context-block { margin-top: 8px; }
     .context-list { display: flex; flex-direction: column; gap: 10px; }
     .context-list li {
-      position: relative;
-      padding-left: 14px;
-      color: var(--text-sub);
       font-size: 0.98rem;
-      line-height: 1.6;
-      font-weight: 550;
+      color: var(--text-sub);
+      font-weight: 450;
+      line-height: 1.65;
+      position: relative;
+      padding-left: 16px;
     }
     .context-list li::before {
       content: "";
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(0,70,42,0.35);
       position: absolute;
       left: 0;
-      top: 0.72em;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: rgba(0,70,42,0.50);
+      top: 0.75em;
       transform: translateY(-50%);
     }
 
     .phase-grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: start;
+      gap: 14px;
     }
+
     .phase-wrapper {
       background-color: var(--bg-light);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 22px;
+      padding: 20px;
     }
     .phase-badge {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 900;
-      letter-spacing: 0.06em;
-      color: white;
-      background: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      color: rgba(17,24,39,0.70);
+      background: rgba(17,24,39,0.06);
       padding: 6px 10px;
       border-radius: 999px;
       margin-bottom: 10px;
     }
-    .phase-title { font-size: 1.1rem; font-weight: 900; color: var(--primary); margin-bottom: 10px; }
-    .phase-subtitle { font-size: 0.95rem; color: var(--text-sub); margin-bottom: 18px; line-height: 1.55; }
+    .phase-title {
+      font-size: 1.08rem;
+      font-weight: 840;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .phase-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+      margin-bottom: 14px;
+      line-height: 1.6;
+      font-weight: 450;
+    }
 
     .segment-grid-2x2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .seg-card-mini {
       background: #fff;
       padding: 14px;
-      border-radius: 10px;
+      border-radius: 12px;
       border: 1px solid var(--border);
       display: flex;
       flex-direction: column;
       height: 100%;
       box-shadow: 0 1px 2px rgba(0,0,0,0.03);
     }
-    .seg-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-    .seg-name { font-size: 0.95rem; font-weight: 900; color: var(--primary-dark); }
+    .seg-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; gap: 10px; }
+    .seg-name { font-size: 0.94rem; font-weight: 760; color: var(--primary-dark); }
     .seg-purpose {
-      font-size: 0.7rem;
-      color: var(--primary-dark);
-      background-color: rgba(195,232,141,0.55);
-      padding: 2px 8px;
+      font-size: 0.72rem;
+      color: rgba(17,24,39,0.86);
+      background-color: rgba(195,232,141,0.65);
+      padding: 3px 8px;
       border-radius: 999px;
-      font-weight: 900;
-      border: 1px solid rgba(0,70,42,0.14);
+      font-weight: 650;
+      border: 1px solid rgba(0,70,42,0.10);
+      white-space: nowrap;
     }
-    .seg-desc-mini { font-size: 0.86rem; color: var(--text-sub); margin-bottom: 8px; line-height: 1.4; font-weight: 650; }
+    .seg-desc-mini { font-size: 0.88rem; color: var(--text-sub); margin-bottom: 8px; line-height: 1.5; font-weight: 450; }
 
     .formula-code {
-      display: block;
       margin-top: auto;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
       padding: 10px 10px;
       border-radius: 10px;
-      border: 1px solid rgba(15,23,42,0.10);
-      background: rgba(0,70,42,0.04);
-      color: #0f172a;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       font-size: 0.78rem;
-      line-height: 1.5;
-      overflow-x: auto;
+      color: #334155;
+      line-height: 1.55;
+      white-space: normal;
+      word-break: break-word;
+      font-weight: 450;
     }
-    .seg-vars { font-size: 0.78rem; color: #64748b; margin-top: 6px; }
+    .seg-vars { font-size: 0.78rem; color: #64748b; margin-top: 6px; font-weight: 430; }
 
     .asset-stack { display: flex; flex-direction: column; gap: 10px; }
     .asset-card {
@@ -686,204 +624,234 @@
       gap: 12px;
       background: #fff;
       padding: 14px;
-      border-radius: 10px;
+      border-radius: 12px;
       border: 1px solid var(--border);
-      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
     }
-    .asset-head { display: block; font-size: 0.92rem; font-weight: 900; color: var(--primary-dark); margin-bottom: 4px; }
-    .asset-body { display: block; font-size: 0.88rem; color: var(--text-sub); line-height: 1.5; font-weight: 600; }
+    .asset-head { font-weight: 750; color: var(--primary-dark); font-size: 0.92rem; }
+    .asset-body { font-size: 0.90rem; color: var(--text-sub); line-height: 1.6; font-weight: 450; }
+
     .impact-highlight {
       margin-top: 14px;
       background: #fff;
-      border: 1px solid rgba(0,70,42,0.18);
-      border-left-width: 6px;
-      border-left-color: var(--accent);
+      border: 1px solid rgba(195,232,141,0.95);
       border-radius: 12px;
       padding: 12px 14px;
       font-size: 0.92rem;
       color: var(--primary-dark);
-      font-weight: 750;
-      text-align: left;
-      box-shadow: var(--shadow-sm);
+      font-weight: 550;
+      text-align: center;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.02);
     }
 
-    /* Pie chart */
-    .pie-chart-visual {
-      width: 120px; height: 120px;
-      border-radius: 50%;
-      background: conic-gradient(var(--primary) 0% 92%, #e5e7eb 92% 100%);
-      box-shadow: inset 0 0 0 10px rgba(255,255,255,0.65);
-      margin: 0 auto;
-    }
-    .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-
-    /* Bottom area: result + media */
     .bottom-result-area {
-      background-color: #F8F9FA;
-      padding: 60px 0;
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
-      margin-right: calc(-50vw + 50%);
-      border-top: 1px solid var(--border);
-      border-bottom-left-radius: 16px;
-      border-bottom-right-radius: 16px;
+      background-color: transparent;
+      padding: 0;
+      border-top: 0;
     }
     .result-quote-box {
       background: white;
-      border: 1px solid rgba(0,70,42,0.18);
+      border: 1px solid rgba(195,232,141,0.95);
       border-left-width: 6px;
-      border-left-color: var(--accent);
-      border-radius: 12px;
-      padding: 22px;
-      margin-bottom: 34px;
+      border-radius: 14px;
+      padding: 18px 18px;
+      margin-top: 6px;
+      margin-bottom: 18px;
       box-shadow: var(--shadow-sm);
     }
-    .result-text-main { font-size: 1.08rem; font-weight: 800; color: var(--primary-dark); line-height: 1.65; }
+    .result-text-main {
+      font-size: 1.02rem;
+      font-weight: 520;
+      color: var(--primary-dark);
+      line-height: 1.75;
+    }
 
-    .media-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .media-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .media-card {
       background: white;
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 14px;
       overflow: hidden;
       cursor: pointer;
       transition: transform 0.2s;
       box-shadow: var(--shadow-sm);
     }
-    .media-card:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: var(--shadow-md); }
+    .media-card:hover { transform: translateY(-4px); border-color: rgba(0,70,42,0.28); box-shadow: var(--shadow-md); }
     .media-header {
-      padding: 12px 16px;
+      padding: 12px 14px;
       background: white;
       border-bottom: 1px solid #f3f4f6;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 10px;
     }
-    .media-title { font-size: 0.9rem; font-weight: 800; color: var(--text-main); }
-    .media-badge { font-size: 0.75rem; background: #F3F4F6; color: var(--text-sub); padding: 4px 8px; border-radius: 6px; font-weight: 800; }
+    .media-title { font-size: 0.92rem; font-weight: 700; color: var(--text-main); }
+    .media-badge {
+      font-size: 0.78rem;
+      background: #F3F4F6;
+      color: var(--text-sub);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-weight: 650;
+      white-space: nowrap;
+    }
     .media-body {
       background: #f8fafc;
-      height: 240px;
+      height: 220px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
+      padding: 10px;
     }
-    .media-thumb { width: 100%; height: 100%; object-fit: contain; }
+    /* “꽉 차되 안 잘리게” */
+    .media-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      background: #f8fafc;
+    }
+    .media-body iframe.media-thumb{
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #f8fafc;
+    }
 
-    /* =========================
-      CHEONAN DETAILS
-    ========================= */
-    .dashboard-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: start;
+    /* Pie chart */
+    .pie-chart-visual {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: conic-gradient(var(--primary) 0% 92%, #e5e7eb 92% 100%);
+      border: 1px solid rgba(17,24,39,0.08);
+      margin: 0 auto;
     }
-    .dashboard-col { display: flex; flex-direction: column; gap: 28px; }
+    .pie-legend { margin-top: 10px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+    /* Cheonan layout */
+    .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
     .text-card {
       background: white;
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 30px;
+      padding: 22px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.02);
     }
     .text-card h3 {
-      font-size: 1.12rem;
-      font-weight: 900;
+      font-size: 1.08rem;
+      font-weight: 820;
       color: var(--primary-dark);
-      margin-bottom: 14px;
-      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 10px;
     }
 
-    /* Policy Grid */
+    .risk-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .risk-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      background: #fff;
+    }
+    .risk-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .risk-title { font-weight: 820; color: var(--text-main); }
+    .risk-tag {
+      font-size: 0.78rem;
+      font-weight: 720;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #F3F4F6;
+      color: var(--text-sub);
+      white-space: nowrap;
+    }
+    .risk-desc { font-size: 0.95rem; color: var(--text-sub); line-height: 1.7; font-weight: 450; }
+
     .policy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
     .policy-card {
       background: #fff;
-      padding: 16px;
+      padding: 14px;
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: 14px;
       text-align: left;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
     }
     .policy-badge {
-      display: inline-block;
-      font-size: 0.8rem;
-      font-weight: 900;
-      padding: 4px 10px;
+      display: inline-flex;
+      font-size: 0.78rem;
+      font-weight: 820;
+      padding: 5px 10px;
       border-radius: 999px;
       margin-bottom: 10px;
       color: white;
-    }
-    .policy-title {
-      font-size: 0.95rem;
-      font-weight: 900;
-      color: #0f172a;
-      margin-bottom: 6px;
-    }
-    .policy-explain {
-      font-size: 0.85rem;
-      color: var(--text-sub);
-      line-height: 1.45;
-      font-weight: 600;
-      margin-bottom: 10px;
+      letter-spacing: 0.02em;
     }
     .policy-desc {
-      font-size: 0.88rem;
-      color: var(--text-main);
-      line-height: 1.55;
-      font-weight: 650;
+      font-size: 0.92rem;
+      color: var(--text-sub);
+      line-height: 1.6;
+      font-weight: 450;
+    }
+    .policy-desc strong { font-weight: 750; color: var(--text-main); }
+
+    .cta-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
     }
 
-    /* =========================
-      EXPERIENCE / FOOTER
-    ========================= */
-    #experience { padding: 100px 0; background-color: var(--bg-light); }
-    .exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    #experience { padding: 95px 0; background-color: var(--bg-light); }
+    .exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
     .exp-card {
       background: white;
-      padding: 40px 32px;
+      padding: 34px 28px;
       border-radius: 16px;
       border: 1px solid var(--border);
       box-shadow: var(--shadow-sm);
       transition: transform 0.2s;
     }
-    .exp-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--primary); }
-    .exp-date { display: block; font-size: 0.85rem; color: var(--text-light); margin-bottom: 12px; font-weight: 600; }
-    .exp-title { font-size: 1.4rem; font-weight: 900; margin-bottom: 6px; color: var(--primary); }
-    .exp-role { font-size: 1rem; font-weight: 700; color: var(--text-main); margin-bottom: 16px; }
-    .exp-desc { font-size: 0.9rem; color: var(--text-sub); line-height: 1.6; word-break: keep-all; font-weight: 550; }
+    .exp-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(0,70,42,0.26); }
+    .exp-date { display: block; font-size: 0.86rem; color: var(--text-light); margin-bottom: 10px; font-weight: 600; }
+    .exp-title { font-size: 1.35rem; font-weight: 850; margin-bottom: 6px; color: var(--primary); }
+    .exp-role { font-size: 1.0rem; font-weight: 600; color: var(--text-main); margin-bottom: 12px; }
+    .exp-desc { font-size: 0.92rem; color: var(--text-sub); line-height: 1.65; font-weight: 450; }
 
-    footer {
-      padding: 80px 0;
-      background: var(--primary-dark);
-      color: rgba(255,255,255,0.85);
-      text-align: center;
-    }
+    footer { padding: 80px 0; background: var(--primary-dark); color: rgba(255,255,255,0.85); text-align: center; }
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-      margin-bottom: 60px;
+      gap: 34px;
+      margin-bottom: 50px;
       text-align: left;
     }
     .skill-col h4 {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       color: #fff;
       margin-bottom: 18px;
       border-bottom: 3px solid var(--accent);
       display: inline-block;
       padding-bottom: 6px;
-      font-weight: 900;
+      font-weight: 800;
     }
-    .skill-list li { margin-bottom: 10px; color: rgba(255,255,255,0.9); font-size: 0.95rem; font-weight: 550; }
-    .footer-links { margin-top: 20px; display: flex; justify-content: center; gap: 20px; }
+    .skill-list li { margin-bottom: 10px; color: rgba(255,255,255,0.9); font-size: 0.95rem; font-weight: 450; }
+    .footer-links { margin-top: 16px; display: flex; justify-content: center; gap: 18px; }
     .footer-links a { border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 2px; }
     .footer-links a:hover { color: var(--accent); border-color: var(--accent); }
 
-    /* =========================
-      MODAL
-    ========================= */
+    /* MODAL */
     .modal-overlay {
       position: fixed; top: 0; left: 0;
       width: 100%; height: 100%;
@@ -901,61 +869,55 @@
       max-width: 1100px;
       height: 90vh;
       border-radius: 16px;
-      padding: 32px;
+      padding: 24px;
       position: relative;
       box-shadow: var(--shadow-md);
       animation: modalFadeIn 0.2s ease;
       display: flex;
       flex-direction: column;
+      overflow: hidden;
     }
-    @keyframes modalFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes modalFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     .modal-close {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--text-sub);
+      position: absolute; top: 14px; right: 14px;
+      font-size: 1.2rem; cursor: pointer; color: var(--text-sub);
       z-index: 20;
-      width: 34px;
-      height: 34px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
       border-radius: 50%;
       background: #F3F4F6;
     }
     .modal-close:hover { background: #E5E7EB; color: var(--text-main); }
-    .modal-title {
-      font-size: 1.5rem;
-      font-weight: 900;
-      color: var(--primary);
-      margin-bottom: 6px;
-      padding-right: 44px;
-    }
-    .modal-desc {
-      font-size: 1rem;
-      color: var(--text-sub);
-      margin-bottom: 14px;
-      max-width: 95%;
-      text-align: left;
-      font-weight: 600;
-    }
+    .modal-title { font-size: 1.25rem; font-weight: 800; color: var(--primary); margin-bottom: 8px; padding-right: 44px; }
+    .modal-desc { font-size: 0.96rem; color: var(--text-sub); margin-bottom: 10px; font-weight: 450; text-align: center; }
+
     .modal-body-container {
       flex: 1;
       width: 100%;
+      height: 100%;
       background: #F3F4F6;
       border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       border: 1px solid var(--border);
       overflow: hidden;
+      display: flex;
+      align-items: stretch;
+      justify-content: stretch;
+      position: relative;
+    }
+    .modal-body-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #fff;
+    }
+    .modal-body-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #F3F4F6;
     }
 
-    /* =========================
-      RESPONSIVE
-    ========================= */
+    /* Responsive */
     @media (max-width: 1024px) {
       .results-strip { grid-template-columns: 1fr; gap: 12px; }
       .result-card { text-align: left; align-items: flex-start; }
@@ -963,24 +925,23 @@
       .phase-grid-2 { grid-template-columns: 1fr; }
       .media-grid-2 { grid-template-columns: 1fr; }
       .segment-grid-2x2, .policy-grid { grid-template-columns: 1fr; }
-      .full-width-card > div { flex-direction: column; align-items: flex-start; gap: 20px; }
-      .proof-grid { grid-template-columns: 1fr; }
+      .full-width-card > div { flex-direction: column; align-items: flex-start; gap: 18px; }
     }
+
     @media (max-width: 768px) {
-      .hero-grid, .about-layout, .exp-grid, .skills-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-grid, .about-layout, .exp-grid, .skills-grid { grid-template-columns: 1fr; gap: 36px; }
       .hero-text { order: 2; text-align: center; }
-      .cta-group { justify-content: center; }
       .hero-visual-card { order: 1; aspect-ratio: 16/9; max-height: 320px; }
       .nav-links { display: none; }
-      .project-details-wrapper { padding: 32px 20px; }
-      .profile-quote { padding: 28px 22px; }
-      .card-1, .card-2, .card-3 { transform: none; }
+      .project-details-wrapper { padding: 28px 18px; }
+      .details-inner { max-width: 100%; }
+      .profile-quote { width: 100%; }
     }
   </style>
 </head>
 
 <body>
-  <!-- Sticky Nav -->
+
   <nav>
     <div class="nav-inner">
       <div class="logo">Han Jaehui.</div>
@@ -993,7 +954,6 @@
     </div>
   </nav>
 
-  <!-- Hero -->
   <header id="hero">
     <div class="container">
       <div class="hero-grid">
@@ -1011,43 +971,38 @@
           </div>
         </div>
 
-        <!-- ✅ CSS로 그린 콜라주(이미지 제거) -->
-        <div class="hero-visual-card" aria-label="CSS Visual Collage">
-          <div class="collage-card card-1">
-            <div class="card-inner">
-              <div class="card-topline">
-                <span>PPT Thumbnail</span><span class="pill">Deck</span>
-              </div>
-              <div class="ppt-mock"></div>
+        <div class="hero-visual-card" aria-hidden="true">
+          <div class="illus-card illus-1">
+            <div class="illus-header">
+              <span>Recommendation Snapshot</span>
+              <span class="illus-dots"><span class="illus-dot"></span><span class="illus-dot"></span><span class="illus-dot"></span></span>
             </div>
-          </div>
-
-          <div class="collage-card card-2">
-            <div class="card-inner">
-              <div class="card-topline">
-                <span>Heat Map</span><span class="pill">GIS</span>
-              </div>
-              <div class="map-mock">
-                <div class="grid"></div>
-                <div class="blob red"></div>
-                <div class="blob orange"></div>
-                <div class="blob green"></div>
+            <div class="illus-body">
+              <div class="mini-cards">
+                <div class="mini-card"><span>Segment Strategy</span><span class="pill">Explainable</span></div>
+                <div class="mini-card"><span>Cold Start 대응</span><span class="pill">92%</span></div>
               </div>
             </div>
           </div>
 
-          <div class="collage-card card-3">
-            <div class="card-inner">
-              <div class="card-topline">
-                <span>Service Demo</span><span class="pill">UI</span>
-              </div>
-              <div class="ui-mock">
-                <div class="search"></div>
-                <div class="bar"></div>
-                <div class="cards">
-                  <span></span><span></span><span></span>
-                  <span></span><span></span><span></span>
-                </div>
+          <div class="illus-card illus-2">
+            <div class="illus-header">
+              <span>Spatial Insight</span>
+              <span class="illus-dots"><span class="illus-dot"></span><span class="illus-dot"></span><span class="illus-dot"></span></span>
+            </div>
+            <div class="illus-body">
+              <div class="mini-map"></div>
+            </div>
+          </div>
+
+          <div class="illus-card illus-3">
+            <div class="illus-header">
+              <span>Impact</span>
+              <span class="illus-dots"><span class="illus-dot"></span><span class="illus-dot"></span><span class="illus-dot"></span></span>
+            </div>
+            <div class="illus-body">
+              <div class="mini-bars">
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
               </div>
             </div>
           </div>
@@ -1057,7 +1012,6 @@
     </div>
   </header>
 
-  <!-- Proof teaser -->
   <section id="proof">
     <div class="container">
       <div class="proof-grid">
@@ -1065,10 +1019,8 @@
           <div>
             <div class="teaser-meta">2025.10 - 2026.01</div>
             <h3 class="teaser-title">ThinkGood:<br>공모전 추천 시스템</h3>
-            <p class="teaser-desc">현업 적용 추천 모델 구현: 데이터 정비 및 비전문가 설득을 위한 XAI 구조 설계</p>
-            <div class="teaser-tags">
-              <span class="badge">Cold Start</span><span class="badge">Rule-based</span><span class="badge">Segment</span>
-            </div>
+            <p class="teaser-desc">90%+ 비식별 환경에서 세그먼트 전략으로 추천을 구현하고, 운영 DB 고도화(로그/표준/식별) 로드맵까지 제안</p>
+            <div class="teaser-tags"><span class="badge">Cold Start</span><span class="badge">Segment</span></div>
           </div>
           <div class="teaser-footer"><span class="btn-link">View Project →</span></div>
         </a>
@@ -1077,10 +1029,8 @@
           <div>
             <div class="teaser-meta">2025.07 - 2025.08</div>
             <h3 class="teaser-title">Cheonan:<br>복지 사각지대 분석</h3>
-            <p class="teaser-desc">통계 검증(KMO/Moran's I) 기반으로 행정동별 위험 요인을 구조화하고 정책 우선순위를 제안</p>
-            <div class="teaser-tags">
-              <span class="badge">GIS</span><span class="badge">Factor Analysis</span><span class="badge">Clustering</span>
-            </div>
+            <p class="teaser-desc">좌표 정밀 변환과 통계적 검증(KMO/Moran’s I) 기반으로 위험유형을 정의하고, 유형별 정책 처방을 연결</p>
+            <div class="teaser-tags"><span class="badge">GIS</span><span class="badge">Factor</span></div>
           </div>
           <div class="teaser-footer"><span class="btn-link">View Project →</span></div>
         </a>
@@ -1088,11 +1038,9 @@
     </div>
   </section>
 
-  <!-- About -->
   <section id="about">
     <div class="container">
-      <h2 class="section-title" style="display:block; text-align:center; margin-bottom:60px;">About Me</h2>
-
+      <h2 class="section-title" style="display:block; text-align:center; margin-bottom:56px;">About Me</h2>
       <div class="about-layout">
         <div class="profile-side">
           <div class="profile-img-slot">
@@ -1102,6 +1050,13 @@
           <div class="profile-links">
             <a href="mailto:han.zinna@email.com" class="social-btn">Email</a>
             <a href="https://github.com/HanJaeHui-GitHub" target="_blank" class="social-btn">Github</a>
+          </div>
+          <div class="profile-quote">
+            <p class="quote-text">
+              데이터와 비즈니스 환경을 함께 고려하여,<br>
+              주어진 상황에서 가장 실행 가능한 최적의 구조를 설계합니다.<br>
+              단순 분석을 넘어 의사결정을 이끄는 단단한 근거를 만듭니다.
+            </p>
           </div>
         </div>
 
@@ -1115,28 +1070,15 @@
           </div>
         </div>
       </div>
-
-      <!-- ✅ 가로 넓힌 인용 카드 (그리드 아래) -->
-      <div class="profile-quote-wide">
-        <div class="profile-quote">
-          <p class="quote-text">
-            데이터와 비즈니스 환경을 함께 고려하여,<br>
-            주어진 상황에서 가장 실행 가능한 최적의 구조를 설계합니다.<br>
-            단순 분석을 넘어 의사결정을 이끄는 단단한 근거를 만듭니다.
-          </p>
-        </div>
-      </div>
-
     </div>
   </section>
 
   <div id="projects"></div>
 
-  <!-- =========================
-    Project 1 (ThinkGood)
-  ========================= -->
+  <!-- Project 1 -->
   <section id="project-1" class="project-detail thinkgood">
     <div class="container">
+
       <div class="pj-summary">
         <span class="pj-date">2025.10 ~ 2026.01</span>
         <h2 class="pj-title">사용자 행동 데이터 기반 공모전 추천 시스템 및 DB 고도화 제안</h2>
@@ -1155,24 +1097,15 @@
       <div class="results-strip">
         <div class="result-card">
           <h4 class="result-head">Challenge</h4>
-          <p class="result-text">
-            <span class="highlight-num">92%</span> Cold Start<br>
-            <span style="font-size:0.85rem; font-weight:500; color:var(--text-sub);">노출·클릭 로그 부재 → 접수만 존재</span>
-          </p>
+          <p class="result-text"><span class="highlight-num">92%</span> Cold Start<br><span style="font-size:0.88rem; font-weight:450; color:var(--text-sub);">노출·클릭 로그 부재 → 접수만 존재</span></p>
         </div>
         <div class="result-card">
           <h4 class="result-head">Solution</h4>
-          <p class="result-text">
-            <span class="highlight-num">Segment</span> Strategy<br>
-            <span style="font-size:0.85rem; font-weight:500; color:var(--text-sub);">4 세그먼트 하이브리드 추천 설계</span>
-          </p>
+          <p class="result-text"><span class="highlight-num">Segment</span> Strategy<br><span style="font-size:0.88rem; font-weight:450; color:var(--text-sub);">4 세그먼트 하이브리드 추천 설계</span></p>
         </div>
         <div class="result-card">
           <h4 class="result-head">Impact</h4>
-          <p class="result-text">
-            <span class="highlight-num">XAI</span> Dashboard<br>
-            <span style="font-size:0.85rem; font-weight:500; color:var(--text-sub);">근거 시각화 → 검증·조정 가능한 운영형 추천</span>
-          </p>
+          <p class="result-text"><span class="highlight-num">XAI</span> Dashboard<br><span style="font-size:0.88rem; font-weight:450; color:var(--text-sub);">근거 시각화 → 검증·조정 가능한 운영형 추천</span></p>
         </div>
       </div>
 
@@ -1181,32 +1114,29 @@
       </div>
     </div>
 
-    <!-- Details -->
     <div id="pj1-details" class="project-details-wrapper">
       <div class="details-inner">
         <div class="project-content-stack">
 
           <div class="full-width-card">
             <div class="detail-h3">Problem Definition: Data Reality</div>
-
-            <div style="display:flex; gap:40px; align-items:center; flex-wrap:wrap;">
+            <div style="display:flex; gap:34px; align-items:center; flex-wrap:wrap;">
               <div style="flex:1; min-width:300px;">
                 <div class="context-block" style="margin:0;">
                   <ul class="context-list">
                     <li>추천을 위한 행동 로그(Click/View) 부재, 오직 <strong>‘접수’</strong> 데이터만 존재</li>
-                    <li>목표를 “정교한 개인화”가 아니라 <strong>“탐색 비용을 줄여 이탈을 막는 것”</strong>으로 재정의</li>
+                    <li>목표를 “정교한 개인화”보다 <strong>“탐색 비용을 줄여 이탈을 막는다”</strong>는 비즈니스 관점으로 재정의</li>
                   </ul>
                 </div>
               </div>
-
               <div style="flex:0 0 200px; text-align:center;">
                 <div class="pie-chart-visual"></div>
-                <div class="pie-legend" style="margin-top:10px;">
-                  <div style="font-size:0.85rem; color:var(--text-sub); margin-top:8px;">
-                    <span class="dot" style="background:var(--primary); margin-right:6px;"></span>92% 비회원
+                <div class="pie-legend">
+                  <div style="font-size:0.86rem; color:var(--text-sub); margin-top:8px;">
+                    <span class="dot" style="background:var(--primary); display:inline-block; margin-right:6px;"></span>92% 비회원
                   </div>
-                  <div style="font-size:0.85rem; color:var(--text-sub);">
-                    <span class="dot" style="background:#e5e7eb; margin-right:6px;"></span>8% 회원
+                  <div style="font-size:0.86rem; color:var(--text-sub);">
+                    <span class="dot" style="background:#e5e7eb; display:inline-block; margin-right:6px;"></span>8% 회원
                   </div>
                 </div>
               </div>
@@ -1214,13 +1144,14 @@
           </div>
 
           <div class="phase-grid-2">
-            <!-- Phase 1 -->
+
             <div class="phase-wrapper">
               <div class="phase-badge">PHASE 1</div>
               <div class="phase-title">Segment Strategy</div>
-              <p class="phase-subtitle">마케터가 이해하고 운영할 수 있는 ‘설명 가능한 로직’으로 즉시 도입 가능한 모델을 구현했습니다.</p>
+              <p class="phase-subtitle">마케터가 이해하고 운영할 수 있는 <strong>설명 가능한 로직</strong>으로 즉시 도입 가능한 모델을 구현했습니다.</p>
 
               <div class="segment-grid-2x2">
+
                 <div class="seg-card-mini">
                   <div class="seg-head">
                     <span class="seg-name">GUEST (92%)</span>
@@ -1260,33 +1191,27 @@
                   <code class="formula-code">Score = 1.5 · Norm(SimilarityCF) + 1.0 · Norm(Σ (IDF(tag) · match(tag)))</code>
                   <div class="seg-vars">Sim=Cosine, Interest=Tag Match</div>
                 </div>
+
               </div>
             </div>
 
-            <!-- Phase 2 -->
             <div class="phase-wrapper">
               <div class="phase-badge">PHASE 2</div>
               <div class="phase-title">Data Assetization</div>
-              <p class="phase-subtitle">AI 고도화의 병목을 데이터 구조로 정의하고, 운영 DB를 ‘학습 가능한 자산’으로 전환하는 설계를 역제안했습니다.</p>
+              <p class="phase-subtitle">AI 고도화의 병목을 데이터 구조로 정의하고, 운영 DB를 <strong>학습 가능한 자산</strong>으로 전환하는 설계를 역제안했습니다.</p>
 
               <div class="asset-stack">
                 <div class="asset-card">
-                  <div>
-                    <span class="asset-head">👤 식별 (Identity)</span>
-                    <span class="asset-body">회원/비회원 통합 PK 체계(NM25_...)로 사용자 단위 데이터 연결</span>
-                  </div>
+                  <span class="asset-head">👤 식별 (Identity)</span>
+                  <span class="asset-body">회원/비회원 통합 PK 체계(NM25_...)로 사용자 단위 데이터 연결</span>
                 </div>
                 <div class="asset-card">
-                  <div>
-                    <span class="asset-head">⚡ 신호 (Signal)</span>
-                    <span class="asset-body">접수(Result)뿐 아니라 노출/클릭 등 과정(Process) 로그 축적 파이프라인</span>
-                  </div>
+                  <span class="asset-head">⚡ 신호 (Signal)</span>
+                  <span class="asset-body">접수(Result)뿐 아니라 노출/클릭 등 과정(Process) 로그 축적 파이프라인</span>
                 </div>
                 <div class="asset-card">
-                  <div>
-                    <span class="asset-head">📏 표준 (Standard)</span>
-                    <span class="asset-body">입력값·용어를 코드(Code)로 통일해 데이터 품질을 구조적으로 보장</span>
-                  </div>
+                  <span class="asset-head">📏 표준 (Standard)</span>
+                  <span class="asset-body">입력값·용어를 코드(Code)로 통일해 데이터 품질을 구조적으로 보장</span>
                 </div>
               </div>
 
@@ -1294,49 +1219,41 @@
                 💡 Impact: Result 중심 → Process 중심으로 확장 가능한 데이터 인프라 전환
               </div>
             </div>
+
           </div>
 
           <div class="bottom-result-area">
-            <div class="container">
-              <div class="result-quote-box">
-                <div class="result-text-main">
-                  "추천의 판단 근거(예: 이력 기반 적합도)를 웹 데모로 시각화해 운영자가 검증·설명·조정 가능한 상태로 만들었고,<br>
-                  AI를 단순 기능이 아닌 <strong>운영 인프라 관점</strong>으로 연결했습니다."
+            <div class="result-quote-box">
+              <div class="result-text-main">
+                “추천의 판단 근거(예: 이력 기반 적합도)를 웹 데모로 시각화해 운영자가 <strong>검증·설명·조정</strong> 가능한 상태로 만들었고,<br>
+                AI를 단순 기능이 아닌 <strong>운영 인프라 관점</strong>으로 연결했습니다.”
+              </div>
+            </div>
+
+            <div class="media-grid-2">
+              <div class="media-card" onclick="openModal('발표 자료', 'PDF Viewer', null, 'asset/thinkgood_presentation.pdf', false, true)">
+                <div class="media-header">
+                  <span class="media-title">📄 발표 자료 (PDF)</span>
+                  <span class="media-badge">View ↗</span>
+                </div>
+                <div class="media-body">
+                  <iframe
+                    class="media-thumb"
+                    sandbox="allow-same-origin allow-scripts"
+                    src="asset/thinkgood_presentation.pdf#view=FitH&toolbar=0&navpanes=0&scrollbar=1">
+                  </iframe>
                 </div>
               </div>
 
-              <div class="media-grid-2">
-                <div class="media-card" onclick="openModal('발표 자료', 'PDF 전체 보기', null, 'asset/thinkgood_presentation.pdf')">
-                  <div class="media-header">
-                    <span class="media-title">📄 발표 자료 (PDF)</span>
-                    <span class="media-badge">View ↗</span>
-                  </div>
-                  <div class="media-body">
-                    <iframe src="asset/thinkgood_presentation.pdf#view=FitH&toolbar=0&navpanes=0&scrollbar=1"
-                            class="media-thumb" style="pointer-events:none;"></iframe>
-                  </div>
+              <div class="media-card" onclick="openModal('서비스 데모', 'Hugging Face Space', null, 'https://huggingface.co/spaces/HanJaeHui/ThinkGood_Recommendation_System', true, false)">
+                <div class="media-header">
+                  <span class="media-title">▶️ 서비스 데모</span>
+                  <span class="media-badge">Open ↗</span>
                 </div>
-
-                <div class="media-card"
-                     onclick="openModal('서비스 데모', 'Hugging Face Space', null, 'https://huggingface.co/spaces/HanJaeHui/ThinkGood_Recommendation_System', true)">
-                  <div class="media-header">
-                    <span class="media-title">▶️ 서비스 데모</span>
-                    <span class="media-badge">Open ↗</span>
-                  </div>
-                  <div class="media-body" style="padding:18px;">
-                    <div style="text-align:center; max-width:520px;">
-                      <div style="font-weight:900; color:var(--primary-dark); margin-bottom:10px;">Demo (Link)</div>
-                      <div style="color:var(--text-sub); font-weight:600; line-height:1.6;">
-                        Hugging Face Space에서 추천 흐름과 XAI 화면을 확인할 수 있습니다.
-                      </div>
-                      <div style="margin-top:16px;">
-                        <span class="badge">Streamlit</span><span class="badge">Explainability</span><span class="badge">Segment</span>
-                      </div>
-                    </div>
-                  </div>
+                <div class="media-body">
+                  <img src="asset/thinkgood%20demo.PNG" class="media-thumb" alt="ThinkGood Demo">
                 </div>
               </div>
-
             </div>
           </div>
 
@@ -1345,47 +1262,37 @@
     </div>
   </section>
 
-  <!-- =========================
-    Project 2 (Cheonan) - ✅ 재구성 반영
-  ========================= -->
+  <!-- Project 2 -->
   <section id="project-2" class="project-detail">
     <div class="container">
+
       <div class="pj-summary">
         <span class="pj-date">2025.07 ~ 2025.08</span>
         <h2 class="pj-title">천안시 노인 복지 사각지대 분석 및 맞춤형 정책 제안</h2>
-        <p class="pj-desc">"좌표 데이터 정밀 가공 + 통계적 검증으로<br>‘왜 위험한지 설명 가능한’ 위험 유형과 정책 우선순위를 도출"</p>
+        <p class="pj-desc">"5만+ 좌표 데이터 정밀 가공과 통계적 검증으로 도출한<br>위험유형 기반의 ‘납득 가능한’ 정책 처방"</p>
 
         <div class="pj-info-grid">
-          <div class="pj-info-item"><h5>Role</h5><p>GIS 데이터 가공, 인자 분석, 공간 분석, 군집화, 시각화/정책 제안</p></div>
+          <div class="pj-info-item"><h5>Role</h5><p>GIS 데이터 가공, 인자 분석, 공간 분석, 군집화, 정책 제안</p></div>
           <div class="pj-info-item"><h5>Tech</h5><p>Python, QGIS, Tableau, Factor Analyzer</p></div>
         </div>
 
         <div class="project-tags">
-          <span class="badge">GIS</span><span class="badge">Factor Analysis</span><span class="badge">Moran's I</span><span class="badge">K-Means</span>
+          <span class="badge">GIS</span><span class="badge">Factor Analysis</span><span class="badge">Moran's I</span><span class="badge">Tableau</span>
         </div>
       </div>
 
       <div class="results-strip">
         <div class="result-card">
           <h4 class="result-head">Data Integrity</h4>
-          <p class="result-text">
-            <span class="highlight-num">5.7만</span> 좌표 변환<br>
-            <span style="font-size:0.85rem; font-weight:500; color:var(--text-sub);">주소→위경도 + 행정동 정밀 매핑</span>
-          </p>
+          <p class="result-text"><span class="highlight-num">5.7만</span> 좌표 변환<br><span style="font-size:0.88rem; font-weight:450; color:var(--text-sub);">정밀 매핑 데이터 구축</span></p>
         </div>
         <div class="result-card">
           <h4 class="result-head">Logical Evidence</h4>
-          <p class="result-text">
-            <span class="highlight-num">14→5</span> 인자 구조화<br>
-            <span style="font-size:0.85rem; font-weight:500; color:var(--text-sub);">KMO 0.6078 검증</span>
-          </p>
+          <p class="result-text"><span class="highlight-num">14→5</span> 인자 구조화<br><span style="font-size:0.88rem; font-weight:450; color:var(--text-sub);">KMO 0.6078 검증</span></p>
         </div>
         <div class="result-card">
-          <h4 class="result-head">Actionable Policy</h4>
-          <p class="result-text">
-            <span class="highlight-num">3유형</span> 위험 분류<br>
-            <span style="font-size:0.85rem; font-weight:500; color:var(--text-sub);">유형별로 정책을 “왜 필요한지” 연결</span>
-          </p>
+          <h4 class="result-head">Actionable</h4>
+          <p class="result-text"><span class="highlight-num">Type→Policy</span> 연결<br><span style="font-size:0.88rem; font-weight:450; color:var(--text-sub);">위험유형별 처방 설계</span></p>
         </div>
       </div>
 
@@ -1393,124 +1300,107 @@
         <button class="btn-toggle-details" onclick="toggleDetails('pj2-details', this)">상세 과정 보기 ▾</button>
       </div>
 
-      <!-- Details -->
-      <div id="pj2-details" class="project-details-wrapper" style="padding-bottom:0; background-color:#F8F9FA;">
+      <div id="pj2-details" class="project-details-wrapper">
         <div class="details-inner">
           <div class="dashboard-grid">
 
-            <!-- Left: Logic & Framework -->
-            <div class="dashboard-col">
-              <div class="text-card">
-                <h3>1) Problem & Logic</h3>
-                <ul class="context-list">
-                  <li>단순히 “위험하다”는 결과가 아니라, <strong>“왜 위험한가?”를 설명할 수 있는 근거</strong>가 정책 설득의 핵심이었습니다.</li>
-                  <li><strong>GIS 정밀 가공:</strong> 주소 데이터 57,790건을 위경도로 변환하고, GeoJSON 매핑 함수를 직접 구현해 <strong>행정동 단위 정확도</strong>를 확보했습니다.</li>
-                </ul>
-              </div>
+            <div class="text-card">
+              <h3>1. Problem & Logic</h3>
+              <ul class="context-list">
+                <li>단순히 “위험하다”는 결과보다 <strong>“왜 위험한가?”</strong>를 설명할 근거가 필수였습니다.</li>
+                <li><strong>GIS 정밀 가공:</strong> 주소 데이터 57,790건을 위경도로 변환하고, GeoJSON 매핑 함수를 직접 구현해 행정동 단위 정확도를 확보했습니다.</li>
+              </ul>
 
-              <div class="text-card">
-                <h3>2) Analysis Framework</h3>
-                <ul class="context-list">
-                  <li><strong>인자 분석(Factor Analysis):</strong> 14개 파생 지표를 ①고령화/독거 ②경제력 ③인지건강 ④금융취약 ⑤생활인프라 등 <strong>5개 해석 가능한 인자</strong>로 압축 (KMO 0.6078).</li>
-                  <li><strong>공간 분석(Spatial):</strong> Moran's I로 위험 지역의 군집(Hot Spot)을 도출해 <strong>관리 우선순위</strong>를 설정.</li>
-                  <li><strong>군집화(K-Means):</strong> 행정동을 <strong>3가지 위험 유형</strong>(복합 결핍 / 인프라 결핍 / 소득 결핍)으로 분류해 정책을 “유형별 처방”으로 연결.</li>
-                </ul>
-              </div>
+              <div style="height:14px;"></div>
 
-              <div class="text-card">
-                <h3>3) 3가지 위험 유형 정의</h3>
-                <ul class="context-list">
-                  <li><strong>복합 결핍형:</strong> 건강·경제·인지·인프라가 동시에 취약해 <strong>단일 서비스로는 개선이 어려운</strong> 구조입니다.</li>
-                  <li><strong>인프라 결핍형:</strong> 경제력보다 <strong>이동/접근성·고립</strong>이 문제라 “갈 수 있게/연결되게” 만드는 정책이 우선입니다.</li>
-                  <li><strong>소득 결핍형:</strong> 생활 인프라는 비교적 괜찮지만 <strong>소득/지원 접근</strong>이 취약해 “현금성·일자리” 처방이 효과적입니다.</li>
-                </ul>
-              </div>
+              <h3 style="font-size:1.05rem; font-weight:820; margin-bottom:10px; border-bottom:2px solid #f0f0f0; padding-bottom:10px; color:var(--primary-dark);">
+                2. Analysis Framework
+              </h3>
+              <ul class="context-list">
+                <li><strong>인자 분석:</strong> 14개 파생 지표를 5개 해석 가능한 인자(고령화/독거, 경제력, 인지건강, 금융취약, 생활인프라)로 압축 (KMO 0.6078)</li>
+                <li><strong>공간 분석:</strong> Moran’s I로 군집(Hot Spot)을 확인해 관리 우선순위를 설정</li>
+                <li><strong>군집화:</strong> K-Means로 3가지 위험유형(복합 결핍/인프라 결핍/소득 결핍) 도출</li>
+              </ul>
             </div>
 
-            <!-- Right: Result & Policy Proposal -->
-            <div class="dashboard-col">
-              <div class="text-card">
-                <h3>4) Result & Policy Proposal</h3>
+            <div class="text-card">
+              <h3>3. Result & Policy Proposal</h3>
 
-                <div class="policy-grid">
-                  <div class="policy-card" style="border-top: 4px solid #EF4444;">
-                    <span class="policy-badge" style="background:#EF4444;">🔴 고위험군</span>
-                    <div class="policy-title">복합 결핍</div>
-                    <div class="policy-explain">여러 취약 요인이 동시에 존재하므로, <strong>방문형·통합형</strong> 서비스가 가장 빠르게 체감 효과를 만듭니다.</div>
-                    <div class="policy-desc">
-                      • 이동식 의료/목욕 차량<br>
-                      • ICT 안전 서비스
-                    </div>
+              <div class="risk-grid">
+                <div class="risk-card">
+                  <div class="risk-head">
+                    <div class="risk-title">복합 결핍형</div>
+                    <div class="risk-tag">Type 1</div>
                   </div>
-
-                  <div class="policy-card" style="border-top: 4px solid #F97316;">
-                    <span class="policy-badge" style="background:#F97316;">🟠 중위험군</span>
-                    <div class="policy-title">인프라 부족/고립</div>
-                    <div class="policy-explain">핵심은 “지원이 있어도 <strong>접근이 안 되는 구조</strong>”라서, 이동/연결 인프라가 정책 레버리지입니다.</div>
-                    <div class="policy-desc">
-                      • 마을 커뮤니티 강화<br>
-                      • 셔틀버스 확충
-                    </div>
-                  </div>
-
-                  <div class="policy-card" style="border-top: 4px solid #22C55E;">
-                    <span class="policy-badge" style="background:#22C55E;">🟢 저위험군</span>
-                    <div class="policy-title">소득 부족</div>
-                    <div class="policy-explain">생활 기반은 유지되지만 소득이 취약해 <strong>지속 가능한 현금흐름</strong>을 만드는 정책이 적합합니다.</div>
-                    <div class="policy-desc">
-                      • 노인 일자리 매칭<br>
-                      • 지역 화폐 바우처
-                    </div>
-                  </div>
+                  <div class="risk-desc">건강·경제·인지·인프라가 동시에 취약해 단일 서비스로는 개선이 어려운 구조입니다.</div>
                 </div>
 
-                <div class="media-grid-2" style="margin-top:28px;">
-                  <div class="media-card" onclick="openModal('공간 분석 지도', 'Hot Spot 중심 위험 지역 분포를 한눈에 확인', 'asset/heatmap.jpg')">
-                    <div class="media-header">
-                      <span class="media-title">🗺️ 분석 지도 보기</span>
-                      <span class="media-badge">View</span>
-                    </div>
-                    <div class="media-body" style="height:200px;">
-                      <img src="asset/heatmap.jpg" class="media-thumb" alt="heatmap">
-                    </div>
+                <div class="risk-card">
+                  <div class="risk-head">
+                    <div class="risk-title">인프라 결핍형</div>
+                    <div class="risk-tag">Type 2</div>
                   </div>
-
-                  <div class="media-card" onclick="openModal('탐색 UI', '인자/유형별로 행정동을 비교 탐색하는 UI', 'asset/factor_danger.jpg')">
-                    <div class="media-header">
-                      <span class="media-title">🖼️ 탐색 UI 보기</span>
-                      <span class="media-badge">View</span>
-                    </div>
-                    <div class="media-body" style="height:200px;">
-                      <img src="asset/factor_danger.jpg" class="media-thumb" alt="ui">
-                    </div>
-                  </div>
+                  <div class="risk-desc">경제력보다 이동/접근성·고립이 문제라 “갈 수 있게/연결되게” 만드는 정책이 우선입니다.</div>
                 </div>
 
-                <div class="media-grid-2" style="margin-top:16px;">
-                  <a href="https://public.tableau.com/app/profile/.45103572/viz/_Tableau2_17560266784060/sheet0"
-                     target="_blank" class="media-card" style="text-decoration:none;">
-                    <div class="media-header">
-                      <span class="media-title">📊 Tableau 대시보드</span>
-                      <span class="media-badge">Link ↗</span>
-                    </div>
-                    <div class="media-body" style="height:120px; background:#f0f9ff; color:#0369a1; font-weight:900;">
-                      Click to Open
-                    </div>
-                  </a>
-
-                  <div class="media-card" onclick="openModal('발표 자료', 'Cheonan 발표 자료 PDF', null, 'asset/cheonan_presentation.pdf')">
-                    <div class="media-header">
-                      <span class="media-title">📄 발표 자료 (PDF)</span>
-                      <span class="media-badge">View ↗</span>
-                    </div>
-                    <div class="media-body" style="height:120px;">
-                      <iframe src="asset/cheonan_presentation.pdf#view=FitH&toolbar=0&navpanes=0&scrollbar=1"
-                              class="media-thumb" style="pointer-events:none;"></iframe>
-                    </div>
+                <div class="risk-card">
+                  <div class="risk-head">
+                    <div class="risk-title">소득 결핍형</div>
+                    <div class="risk-tag">Type 3</div>
                   </div>
+                  <div class="risk-desc">생활 인프라는 비교적 괜찮지만 소득/지원 접근이 취약해 “현금성·일자리” 처방이 효과적입니다.</div>
                 </div>
-
               </div>
+
+              <div class="policy-grid">
+                <div class="policy-card" style="border-top:4px solid #EF4444;">
+                  <span class="policy-badge" style="background:#EF4444;">🔴 고위험군</span>
+                  <p class="policy-desc"><strong>복합 결핍형</strong><br>이동식 의료/목욕 차량<br>ICT 안전 서비스</p>
+                </div>
+                <div class="policy-card" style="border-top:4px solid #F97316;">
+                  <span class="policy-badge" style="background:#F97316;">🟠 중위험군</span>
+                  <p class="policy-desc"><strong>인프라 결핍형</strong><br>마을 커뮤니티 강화<br>셔틀버스 확충</p>
+                </div>
+                <div class="policy-card" style="border-top:4px solid #22C55E;">
+                  <span class="policy-badge" style="background:#22C55E;">🟢 저위험군</span>
+                  <p class="policy-desc"><strong>소득 결핍형</strong><br>노인 일자리 매칭<br>지역 화폐 바우처</p>
+                </div>
+              </div>
+
+              <div style="height:14px;"></div>
+
+              <div class="media-grid-2">
+                <div class="media-card" onclick="openModal('공간 분석 지도', 'Heatmap', 'asset/heatmap.jpg', null, false, false)">
+                  <div class="media-header">
+                    <span class="media-title">🗺️ 분석 지도 보기</span>
+                    <span class="media-badge">View ↗</span>
+                  </div>
+                  <div class="media-body" style="height:200px;">
+                    <img src="asset/heatmap.jpg" class="media-thumb" alt="Heatmap">
+                  </div>
+                </div>
+
+                <div class="media-card" onclick="openModal('탐색 UI', 'Dashboard UI', 'asset/factor_danger.jpg', null, false, false)">
+                  <div class="media-header">
+                    <span class="media-title">🖼️ 탐색 UI 보기</span>
+                    <span class="media-badge">View ↗</span>
+                  </div>
+                  <div class="media-body" style="height:200px;">
+                    <img src="asset/factor_danger.jpg" class="media-thumb" alt="Dashboard UI">
+                  </div>
+                </div>
+              </div>
+
+              <div class="cta-row">
+                <a class="btn btn-secondary" href="https://public.tableau.com/app/profile/.45103572/viz/_Tableau2_17560266784060/sheet0" target="_blank" rel="noopener">
+                  📊 Tableau 대시보드 바로가기 ↗
+                </a>
+
+                <button class="btn btn-secondary" onclick="openModal('발표 자료', 'PDF Viewer', null, 'asset/cheonan_presentation.pdf', false, true)">
+                  📄 발표 자료(PDF) 보기 ↗
+                </button>
+              </div>
+
             </div>
 
           </div>
@@ -1520,10 +1410,9 @@
     </div>
   </section>
 
-  <!-- Experience -->
   <section id="experience">
     <div class="container">
-      <h2 class="section-title" style="display:block; text-align:center; margin-bottom: 60px;">Experience</h2>
+      <h2 class="section-title" style="display:block; text-align:center; margin-bottom:56px;">Experience</h2>
       <div class="exp-grid">
         <div class="exp-card">
           <span class="exp-date">2025.07 ~ 현재</span>
@@ -1547,53 +1436,30 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer id="contact">
     <div class="container">
       <div class="skills-grid">
-        <div class="skill-col">
-          <h4>Language</h4>
-          <ul class="skill-list">
-            <li>Python (Pandas, NumPy)</li>
-            <li>R</li>
-            <li>Markdown</li>
-          </ul>
-        </div>
-        <div class="skill-col">
-          <h4>Analysis</h4>
-          <ul class="skill-list">
-            <li>Factor Analysis</li>
-            <li>Clustering (K-Means)</li>
-            <li>GIS Spatial Analysis</li>
-          </ul>
-        </div>
-        <div class="skill-col">
-          <h4>Visualization</h4>
-          <ul class="skill-list">
-            <li>Tableau</li>
-            <li>Streamlit</li>
-          </ul>
-        </div>
+        <div class="skill-col"><h4>Language</h4><ul class="skill-list"><li>Python (Pandas, NumPy)</li><li>R</li><li>Markdown</li></ul></div>
+        <div class="skill-col"><h4>Analysis</h4><ul class="skill-list"><li>Factor Analysis</li><li>Clustering (K-Means)</li><li>GIS Spatial Analysis</li></ul></div>
+        <div class="skill-col"><h4>Visualization</h4><ul class="skill-list"><li>Tableau</li><li>Streamlit</li></ul></div>
       </div>
-
-      <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:40px;">
-        <h3 style="color:white; font-weight:900;">Contact</h3>
-        <p style="opacity:0.85; margin-bottom:20px; font-weight:600;">데이터로 문제를 정의하고 해결하는 과정을 함께하고 싶습니다.</p>
+      <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:36px;">
+        <h3 style="font-weight:800;">Contact</h3>
+        <p style="opacity:0.85; margin-bottom:18px; font-weight:450;">데이터로 문제를 정의하고 해결하는 과정을 함께하고 싶습니다.</p>
         <div class="footer-links">
           <a href="mailto:han.zinna@email.com">Email</a>
-          <a href="https://github.com/HanJaeHui-GitHub" target="_blank">Github</a>
+          <a href="https://github.com/HanJaeHui-GitHub" target="_blank" rel="noopener">Github</a>
         </div>
-        <p style="margin-top:40px; font-size:0.8rem; opacity:0.55;">&copy; 2026 Han Jaehui. All rights reserved.</p>
+        <p style="margin-top:36px; font-size:0.82rem; opacity:0.55;">&copy; 2026 Han Jaehui. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Modal -->
   <div id="visualModal" class="modal-overlay">
     <div class="modal-content">
       <div class="modal-close" onclick="closeModal()">✕</div>
       <h3 id="modalTitle" class="modal-title">Title</h3>
-      <p id="modalDesc" class="modal-desc"></p>
+      <p id="modalDesc" class="modal-desc" style="display:none;"></p>
       <div class="modal-body-container"></div>
     </div>
   </div>
@@ -1610,34 +1476,48 @@
       }
     }
 
-    function openModal(title, desc, imagePath, url, isLinkOnly) {
+    function openModal(title, desc, imagePath, url, isLinkOnly, isPdf) {
       const modal = document.getElementById('visualModal');
       const container = document.querySelector('.modal-body-container');
       const mTitle = document.getElementById('modalTitle');
       const mDesc = document.getElementById('modalDesc');
 
       container.innerHTML = '';
-      mTitle.innerText = title || '';
-      mDesc.innerText = desc || '';
+      mTitle.innerText = title;
+
+      if (desc) {
+        mDesc.style.display = 'block';
+        mDesc.innerText = desc;
+      } else {
+        mDesc.style.display = 'none';
+      }
 
       modal.classList.add('active');
 
       if (isLinkOnly && url) {
-        container.innerHTML =
-          `<div style="text-align:center; padding:40px;">
-            <a href="${url}" target="_blank" class="btn btn-primary" style="text-decoration:none;">
-              새 창에서 열기 ↗
-            </a>
-          </div>`;
+        const wrap = document.createElement('div');
+        wrap.style.display = 'flex';
+        wrap.style.width = '100%';
+        wrap.style.height = '100%';
+        wrap.style.alignItems = 'center';
+        wrap.style.justifyContent = 'center';
+        wrap.innerHTML = `<a href="${url}" target="_blank" rel="noopener" class="btn btn-primary" style="text-decoration:none;">새 창에서 열기 ↗</a>`;
+        container.appendChild(wrap);
         return;
       }
 
       if (url) {
         const iframe = document.createElement('iframe');
-        iframe.src = url;
-        iframe.style.width = '100%';
-        iframe.style.height = '100%';
-        iframe.style.border = 'none';
+
+        if (isPdf) {
+          const pdfUrl = url + '#view=FitH&toolbar=0&navpanes=0&scrollbar=1';
+          iframe.setAttribute('sandbox', 'allow-same-origin allow-scripts');
+          iframe.src = pdfUrl;
+        } else {
+          iframe.setAttribute('sandbox', 'allow-same-origin allow-scripts');
+          iframe.src = url;
+        }
+
         container.appendChild(iframe);
         return;
       }
@@ -1645,15 +1525,16 @@
       if (imagePath) {
         const img = document.createElement('img');
         img.src = imagePath;
-        img.style.maxWidth = '100%';
-        img.style.maxHeight = '100%';
-        img.style.objectFit = 'contain';
+        img.alt = title || 'image';
         container.appendChild(img);
       }
     }
 
     function closeModal() {
-      document.getElementById('visualModal').classList.remove('active');
+      const modal = document.getElementById('visualModal');
+      modal.classList.remove('active');
+      const container = document.querySelector('.modal-body-container');
+      container.innerHTML = '';
     }
 
     document.getElementById('visualModal').addEventListener('click', (e) => {

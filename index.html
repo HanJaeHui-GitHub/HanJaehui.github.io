@@ -509,7 +509,7 @@
     /* Keyword Card */
     .keywords-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 24px;
     }
     .keyword-card {
@@ -1097,8 +1097,8 @@
         margin-bottom: 24px;
         box-shadow: var(--shadow-sm);
         overflow: hidden;
-        cursor: pointer; 
-        transition: transform 0.2s, box-shadow 0.2s; 
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
     }
     .diagram-box:hover {
         transform: translateY(-2px);
@@ -1112,7 +1112,7 @@
         border-bottom: 1px solid #E2E8F0;
         display: flex;
         align-items: center;
-        justify-content: space-between; 
+        justify-content: space-between;
         gap: 8px;
         font-size: 0.85rem;
         font-weight: 700;
@@ -1121,12 +1121,12 @@
         letter-spacing: 0.05em;
     }
     .diagram-header i { color: var(--primary); }
-    
+
     /* ERD Mermaid Container */
     .diagram-box .mermaid-wrapper {
-        overflow-x: auto;          
+        overflow-x: auto;
         overflow-y: hidden;
-        padding: 24px;       
+        padding: 24px;
         justify-content: center;
         display: flex;
         background: #fff;
@@ -1221,7 +1221,7 @@
         <a href="#about" class="nav-link"><i class="fas fa-user-circle"></i> <span class="nav-text">About</span></a>
         <a href="#project-1" class="nav-link"><i class="fas fa-star"></i> <span class="nav-text">Project 1: ThinkGood</span></a>
         <a href="#project-2" class="nav-link"><i class="fas fa-map"></i> <span class="nav-text">Project 2:<br>Cheonan</span></a>
-        <a href="#experience" class="nav-link"><i class="fas fa-history"></i> <span class="nav-text">Experience</span></a>
+        <a href="#experience" class="nav-link"><i class="fas fa-history"></i> <span class="nav-text">경력 및 활동</span></a>
       </nav>
     </div>
 
@@ -1242,16 +1242,16 @@
       <div class="container">
         <div class="hero-grid">
           <div class="hero-text">
-            <h1>흩어진 데이터를 정리해,<br><span>더 나은 선택을 돕는</span><br>과정을 만듭니다.</h1>
+            <h1>흩어진 데이터를 정리해,<br><span>의사결정에 연결하는</span><br>분석을 합니다.</h1>
             <div class="proof-strip">
-              <span class="proof-item">#Logical_Thinking</span>
-              <span class="proof-item">#Practical_Analysis</span>
-              <span class="proof-item">#Team_Player</span>
+              <span class="proof-item">#문제정의</span>
+              <span class="proof-item">#실용적분석</span>
+              <span class="proof-item">#협업</span>
             </div>
-            <p>데이터에서 실질적인 힌트를 찾아내고,<br>이를 알기 쉽게 전달하는 것을 즐기는 한재희입니다.</p>
+            <p>데이터를 구조화하고, 분석 결과를 이해 가능한 형태로 정리해 전달하는 한재희입니다.</p>
             <div class="cta-group">
-              <a href="#project-1" class="btn btn-primary">View Projects</a>
-              <a href="mailto:han.zinna@email.com" class="btn btn-secondary">Contact Me</a>
+              <a href="#project-1" class="btn btn-primary">프로젝트 보기</a>
+              <a href="mailto:han.zinna@email.com" class="btn btn-secondary">연락하기</a>
             </div>
           </div>
 
@@ -1326,34 +1326,34 @@
 
     <section id="proof">
       <div class="container">
-        <h2 class="section-title" style="text-align:center;">Main Projects</h2>
+        <h2 class="section-title" style="text-align:center;">프로젝트</h2>
         <div class="proof-grid">
           <a href="#project-1" class="teaser-card">
             <div>
               <div class="teaser-meta">2025.10 - 2026.01</div>
               <h3 class="teaser-title">ThinkGood:<br>공모전 추천 시스템</h3>
-              <p class="teaser-desc">Cold Start 환경에서 즉시 운영 가능한 세그먼트 전략과 데이터 자산화 설계를 제안했습니다.</p>
+              <p class="teaser-desc">90% 비식별 유저 환경에서 세그먼트 전략과 DB 스키마를 제안했습니다.</p>
               <div style="margin-top:24px; margin-bottom: 40px; display:flex; gap:6px; flex-wrap:wrap;">
                 <span class="badge">Cold Start</span>
                 <span class="badge">Rule-based</span>
                 <span class="badge">Schema Design</span>
               </div>
             </div>
-            <div style="display:flex;justify-content:flex-end;"><span class="btn-link">View Project <i class="fas fa-arrow-right"></i></span></div>
+            <div style="display:flex;justify-content:flex-end;"><span class="btn-link">자세히 보기 <i class="fas fa-arrow-right"></i></span></div>
           </a>
 
           <a href="#project-2" class="teaser-card">
             <div>
               <div class="teaser-meta">2025.07 - 2025.08</div>
               <h3 class="teaser-title">Cheonan:<br>복지 사각지대 분석</h3>
-              <p class="teaser-desc">좌표 데이터 정밀 가공과 통계 검증으로 행정동별 정책 우선순위를 도출했습니다.</p>
+              <p class="teaser-desc">5.7만 건 좌표 정제와 통계 검증으로 행정동별 복지 우선순위를 도출했습니다.</p>
               <div style="margin-top:24px; margin-bottom: 40px; display:flex; gap:6px; flex-wrap:wrap;">
                 <span class="badge">GIS Processing</span>
                 <span class="badge">Factor Analysis</span>
                 <span class="badge">Moran's I</span>
               </div>
             </div>
-            <div style="display:flex;justify-content:flex-end;"><span class="btn-link">View Project <i class="fas fa-arrow-right"></i></span></div>
+            <div style="display:flex;justify-content:flex-end;"><span class="btn-link">자세히 보기 <i class="fas fa-arrow-right"></i></span></div>
           </a>
         </div>
       </div>
@@ -1361,7 +1361,7 @@
 
     <section id="about">
       <div class="container">
-        <h2 class="section-title">About Me</h2>
+        <h2 class="section-title">About</h2>
         <div class="about-layout">
 
           <div class="profile-side">
@@ -1412,32 +1412,20 @@
               <div class="keyword-card">
                   <div class="kw-icon-circle"><i class="fas fa-bullseye"></i></div>
                   <span class="hash">#문제정의</span>
-                  <p class="desc">수치 자체보다, 그 데이터를 왜 보아야 하는지 목적과 비즈니스 맥락을 먼저 이해하려고 노력합니다.</p>
+                  <p class="desc">ThinkGood에서 90% 비식별 유저 환경을 짚고, 추천 목표를 정밀 개인화보다 탐색 비용 절감으로 다시 정의했습니다.</p>
+                  <a href="#project-1" class="btn-link" style="font-size:0.85rem; margin-top:8px; display:inline-flex;">ThinkGood에서 확인 <i class="fas fa-arrow-right"></i></a>
               </div>
               <div class="keyword-card">
                   <div class="kw-icon-circle"><i class="fas fa-layer-group"></i></div>
                   <span class="hash">#구조설계</span>
-                  <p class="desc">파편화된 데이터를 모아, 실무에서 누구나 쉽게 활용할 수 있는 깔끔한 형태로 정리하는 과정을 좋아합니다.</p>
+                  <p class="desc">ThinkGood에서 User_Master와 User_Activity_Log 구조를 제안해, 접수 데이터만 있던 상태를 학습 가능한 자산으로 바꿨습니다.</p>
+                  <a href="#project-1" class="btn-link" style="font-size:0.85rem; margin-top:8px; display:inline-flex;">스키마 설계 보기 <i class="fas fa-arrow-right"></i></a>
               </div>
               <div class="keyword-card">
                   <div class="kw-icon-circle"><i class="fas fa-comment-dots"></i></div>
                   <span class="hash">#설명력</span>
-                  <p class="desc">분석한 내용이 데이터에 익숙하지 않은 분들에게도 직관적으로 와닿을 수 있도록 전달 방식을 고민합니다.</p>
-              </div>
-              <div class="keyword-card">
-                  <div class="kw-icon-circle"><i class="fas fa-rocket"></i></div>
-                  <span class="hash">#실행력</span>
-                  <p class="desc">작은 아이디어라도 직접 코드로 구현하고 부딪혀보면서 실질적인 작동 여부를 테스트해 봅니다.</p>
-              </div>
-              <div class="keyword-card">
-                  <div class="kw-icon-circle"><i class="fas fa-scale-balanced"></i></div>
-                  <span class="hash">#균형감각</span>
-                  <p class="desc">기술적인 정확도만큼이나, 최종적으로 데이터를 사용하는 사람의 관점과 경험도 중요하게 생각합니다.</p>
-              </div>
-              <div class="keyword-card">
-                  <div class="kw-icon-circle"><i class="fas fa-magnifying-glass-chart"></i></div>
-                  <span class="hash">#탐구심</span>
-                  <p class="desc">당장 눈에 보이는 결과에 만족하기보다, 왜 이런 숫자가 나왔는지 한 번 더 들여다보고 질문합니다.</p>
+                  <p class="desc">천안 프로젝트에서는 5.7만 건 좌표와 Moran's I 결과를 정책 우선순위로 풀어내, 비전공자도 흐름을 따라오게 만들었습니다.</p>
+                  <a href="#project-2" class="btn-link" style="font-size:0.85rem; margin-top:8px; display:inline-flex;">천안 프로젝트 보기 <i class="fas fa-arrow-right"></i></a>
               </div>
             </div>
           </div>
@@ -1472,8 +1460,8 @@
           </div>
           <div class="result-card">
             <h4 class="result-head">Impact</h4>
-            <span class="highlight-num">XAI</span>
-            <p class="result-text">Dashboard<br><span class="result-sub">근거 시각화로 검증 가능한 운영 구현</span></p>
+            <span class="highlight-num">1</span>
+            <p class="result-text">설명 가능한 대시보드<br><span class="result-sub">근거를 함께 보여주는 운영 화면 1개 구축</span></p>
           </div>
         </div>
 
@@ -1629,11 +1617,8 @@ erDiagram
 
               <div class="asset-card">
                 <span class="asset-head"><i class="fas fa-ruler-combined"></i> 표준 (Standard)</span>
-                <ul class="context-list" style="font-size:0.85rem; margin-top:10px;">
-                  <li><strong>Spec:</strong> 비정형 텍스트의 코드화 (Contest_Meta)</li>
-                  <li><strong>Engineering:</strong> Age_Min(int), Region(code) 정규화</li>
-                  <li><strong>Effect:</strong> 별도 NLP 없이 조건절 타겟팅 구현</li>
-                </ul>
+                <p class="asset-body" style="margin-top:10px;">비정형 공모전 메타를 Age_Min, Region code처럼 비교 가능한 규칙으로 정리해 별도 NLP 없이도 조건절 타겟팅이 가능하게 만들었습니다.</p>
+                <p class="asset-body" style="margin-top:8px; font-size:0.85rem; color:var(--text-light);">조건절 타겟팅이 가능하도록 규칙을 정리하고, 분석과 운영이 이어지게 설계했습니다.</p>
               </div>
 
               <div class="asset-card">
@@ -1846,9 +1831,9 @@ erDiagram
 
     <section id="experience">
       <div class="container">
-        <h2 class="section-title">Experience</h2>
+        <h2 class="section-title">경력 및 활동</h2>
         <div class="timeline-container">
-            
+
           <div class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-date">2026.03 ~ 2026.08</div>
@@ -1865,7 +1850,7 @@ erDiagram
             <div class="timeline-content">
               <h3 class="exp-title">Tobig’s</h3>
               <span class="exp-role">인공지능·데이터 분석 연합동아리 - 24기 수료</span>
-              <p class="exp-desc">기업 연계 추천 시스템 프로젝트에 참여하며, 문제 정의부터 모델링 설계까지 실전 데이터 분석 사이클을 경험했습니다.</p>
+              <p class="exp-desc">국가데이터처 인턴과 병행하며 기업 연계 추천 시스템 프로젝트에 참여했고, 문제 정의부터 모델링 설계까지 실전 데이터 분석 사이클을 경험했습니다.</p>
             </div>
           </div>
 
@@ -2040,9 +2025,9 @@ def find_adm_nm(dong_gdf, lon, lat):
       const mTitle = document.getElementById('modalTitle');
       mTitle.innerText = title;
       body.innerHTML = '';
-      
+
       // Reset body container style for generic content
-      body.style.background = '#0b0f0d'; 
+      body.style.background = '#0b0f0d';
       body.style.overflow = 'hidden';
 
       const iframe = document.createElement('iframe');
@@ -2088,25 +2073,25 @@ def find_adm_nm(dong_gdf, lon, lat):
       const wrapper = document.querySelector('.mermaid-wrapper');
       const svg = wrapper?.querySelector('svg');
       if(!svg) return;
-    
+
       document.body.classList.add('no-scroll');
-    
+
       const modal = document.getElementById('visualModal');
       const body  = document.getElementById('modalBody');
       const mTitle= document.getElementById('modalTitle');
-    
+
       mTitle.innerText = "데이터 구조도 (ERD) 상세 보기";
       body.innerHTML = '';
-    
+
       body.style.background = '#ffffff';
       body.style.overflow = 'hidden';
       body.style.display = 'flex';
       body.style.alignItems = 'center';
       body.style.justifyContent = 'center';
       body.style.padding = '0';
-    
+
       const clone = svg.cloneNode(true);
-    
+
       if (!clone.getAttribute('viewBox')) {
         const wAttr = (clone.getAttribute('width') || '').toString();
         const hAttr = (clone.getAttribute('height') || '').toString();
@@ -2114,14 +2099,14 @@ def find_adm_nm(dong_gdf, lon, lat):
         const h = parseFloat(hAttr) || 900;
         clone.setAttribute('viewBox', `0 0 ${w} ${h}`);
       }
-    
+
       clone.setAttribute('preserveAspectRatio', 'xMidYMid meet');
       clone.style.width = '100%';
       clone.style.height = '100%';
       clone.style.maxWidth = '100%';
       clone.style.maxHeight = '100%';
       clone.style.display = 'block';
-    
+
       body.appendChild(clone);
       modal.classList.add('active');
     }
